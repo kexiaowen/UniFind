@@ -1,0 +1,11 @@
+<template name="FoundItems">
+  <section class="posts">
+      {{#if Template.subscriptionsReady}}
+        {{#each posts}}
+          {{> Post}}
+        {{/each}}
+      {{else}}
+        <p>Loading</p>
+      {{/if}}
+  </section>
+</template>
