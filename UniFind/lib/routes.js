@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 if(Meteor.isClient){
   Accounts.onLogin(function () {
-    FlowRouter.go('my-posts');
+    FlowRouter.go('my-account');
   });
 
   Accounts.onLogout(function () {
@@ -19,9 +19,19 @@ FlowRouter.triggers.enter([function(context, redirect){
 FlowRouter.route('/',{
   name: 'home',
   action() {
-
+    if(Meteor.userId()) {
+      FlowRouter.go('my-account');
+    }
     GAnalytics.pageview();
     BlazeLayout.render('HomeLayout');
+  }
+});
+
+FlowRouter.route('/my-account',{
+  name: 'my-account',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'Body'});
   }
 });
 
@@ -39,5 +49,21 @@ FlowRouter.route('/post/:id',{
   action() {
     GAnalytics.pageview();
     BlazeLayout.render('MainLayout', {main: 'PostSingle'});
+  }
+});
+
+FlowRouter.route('/search-lost-items',{
+  name: 'lost-items',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'LostItems'});
+  }
+});
+
+FlowRouter.route('/search-found-items',{
+  name: 'found-items',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'FoundItems'});
   }
 });
