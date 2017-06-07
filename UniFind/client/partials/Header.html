@@ -1,6 +1,17 @@
 <template name="Header">
-  <header>
+  <!--<header>
     <h1>UniFind</h1>
     {{> loginButtons}}
-  </header>
+  </header> -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="/">UniFind</a>
+      </div>
+      <div class="nav navbar-nav navbar-right">
+        {{> loginButtons}}
+      </div>
+
+    </div>
+  </nav>
 </template>

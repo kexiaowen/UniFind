@@ -6,7 +6,7 @@ Template.MyPosts.onCreated(function(){
 });
 Template.MyPosts.helpers({
   posts: ()=> {
-    return Posts.find({author: this.userId});
+    return Posts.find();
   }
 });
 Template.MyPosts.events({
