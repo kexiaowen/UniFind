@@ -1,5 +1,6 @@
 <template name="HomeLayout">
   {{> Header}}
-  {{> Body}}
-
+  <main>
+    {{> Template.dynamic template=main}}
+  </main>
 </template>

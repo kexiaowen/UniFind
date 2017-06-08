@@ -1,11 +1,15 @@
 <template name="LostItems">
-  <section class="posts">
-      {{#if Template.subscriptionsReady}}
-        {{#each posts}}
-          {{> Post}}
-        {{/each}}
-      {{else}}
-        <p>Loading</p>
-      {{/if}}
-  </section>
+  <div class="container">
+    <section class="posts">
+        {{#if Template.subscriptionsReady}}
+          <div class="row">
+            {{#each posts}}
+              {{> ThumbnailPost}}
+            {{/each}}
+          </div>
+        {{else}}
+          <p>Loading</p>
+        {{/if}}
+    </section>
+  </div>
 </template>

@@ -8,6 +8,15 @@ Template.Post.helpers({
   },
   editMode: function(){
     return Template.instance().editMode.get();
+  },
+  isAuthor: function() {
+    var user = Meteor.user();
+    if (!user) { return false; };
+
+    var post = Posts.findOne({_id: this._id});
+    if (!post) { return false; };
+
+    return post.author === Meteor.userId();
   }
 });
 

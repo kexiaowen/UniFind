@@ -50,7 +50,6 @@ Meteor.methods({
 
   deletePost:function(id) {
     Posts.remove(id);
-
   }
 });
 
