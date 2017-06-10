@@ -1,9 +1,9 @@
-<template name="Post">
+<template name="PostFound">
   <article class="post">
     <h3>{{summary}}</h3>
     {{#if editMode}}
       {{#if isAuthor}}
-        {{> quickForm collection="Posts" id=updatePostId type="update" doc=this autosave=true}}
+        {{> quickForm collection="PostsFound" id=updatePostId type="update" doc=this autosave=true}}
       {{/if}}
     {{else}}
       <a href="/post/{{_id}}">View Details</a>

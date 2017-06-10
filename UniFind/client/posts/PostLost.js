@@ -1,8 +1,8 @@
-Template.Post.onCreated(function(){
+Template.PostLost.onCreated(function(){
   this.editMode = new ReactiveVar(false);
 });
 
-Template.Post.helpers({
+Template.PostLost.helpers({
   updatePostId: function() {
     return this._id;
   },
@@ -13,17 +13,17 @@ Template.Post.helpers({
     var user = Meteor.user();
     if (!user) { return false; };
 
-    var post = Posts.findOne({_id: this._id});
+    var post = PostsLost.findOne({_id: this._id});
     if (!post) { return false; };
 
     return post.author === Meteor.userId();
   }
 });
 
-Template.Post.events({
+Template.PostLost.events({
 
   'click .fa-trash' : function(){
-    Meteor.call('deletePost', this._id);
+    Meteor.call('deletePostLost', this._id);
   },
   'click .fa-pencil' : function(event, template){
     template.editMode.set(!template.editMode.get());

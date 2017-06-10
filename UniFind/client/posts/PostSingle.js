@@ -2,12 +2,18 @@ Template.PostSingle.onCreated(function(){
   var self = this;
   self.autorun(function() {
     var id = FlowRouter.getParam('id');
-    self.subscribe('singlePost', id);
+    self.subscribe('singlePostFound', id);
+    self.subscribe('singlePostLost', id);
   });
 });
 Template.PostSingle.helpers({
   post: ()=> {
     var id = FlowRouter.getParam('id');
-    return Posts.findOne({_id: id});
+
+    if(!PostsFound.findOne({_id: id})){
+      return PostsLost.findOne({_id: id});
+    }
+
+    return PostsFound.findOne({_id: id});
   }
 });

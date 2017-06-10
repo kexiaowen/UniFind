@@ -1,12 +1,12 @@
 Template.FoundItems.onCreated(function(){
   var self = this;
   self.autorun(function() {
-    self.subscribe('allPosts');
+    self.subscribe('allPostsFound');
   });
 });
 
 Template.FoundItems.helpers({
   posts: ()=> {
-    return Posts.find({}); // belong to the lost/found(?) category
+    return PostsFound.find({}); // belong to the lost/found(?) category
   }
 });

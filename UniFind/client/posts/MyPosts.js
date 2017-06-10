@@ -1,12 +1,16 @@
 Template.MyPosts.onCreated(function(){
   var self = this;
   self.autorun(function() {
-    self.subscribe('posts');
+    self.subscribe('ownPostsLost');
+    self.subscribe('ownPostsFound');
   });
 });
 Template.MyPosts.helpers({
-  posts: ()=> {
-    return Posts.find();
+  postsLost: ()=> {
+    return PostsLost.find();
+  },
+  postsFound: ()=> {
+    return PostsFound.find();
   }
 });
 Template.MyPosts.events({

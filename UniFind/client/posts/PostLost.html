@@ -1,0 +1,14 @@
+<template name="PostLost">
+  <article class="post">
+    <h3>{{summary}}</h3>
+    {{#if editMode}}
+      {{#if isAuthor}}
+        {{> quickForm collection="PostsLost" id=updatePostId type="update" doc=this autosave=true}}
+      {{/if}}
+    {{else}}
+      <a href="/post/{{_id}}">View Details</a>
+    {{/if}}
+    <i class="fa fa-pencil"></i>
+    <i class="fa fa-trash"></i>
+  </article>
+</template>

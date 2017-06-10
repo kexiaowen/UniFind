@@ -1,7 +1,21 @@
 <template name="NewPost">
-  <div class="new-post-container">
-    <i class="fa fa-close"></i>
-    {{> quickForm collection="Posts" id="insertPostForm" type="insert" class="new-post-form"}}
-  </div>
+  {{#if $.Session.get 'newPostLost'}}
+    <div class="new-post-container">
+      <i class="fa fa-close"></i>
+      {{> quickForm collection="PostsLost" id="insertPostForm" type="insert" class="new-post-form"}}
+    </div>
+
+  {{else}}
+    <button class="new-post-lost">Report Lost Items</button>
+  {{/if}}
+
+  {{#if $.Session.get 'newPostFound'}}
+    <div class="new-post-container">
+      <i class="fa fa-close"></i>
+      {{> quickForm collection="PostsFound" id="insertPostForm" type="insert" schema=PostSchema class="new-post-form"}}
+    </div>
+  {{else}}
+      <button class="new-post-found">Report Found Items</button>
+  {{/if}}
 
 </template>
