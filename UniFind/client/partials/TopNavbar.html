@@ -1,24 +1,39 @@
 <template name="TopNavbar">
-  <div class="navbar-fixed">
-    <nav class="teal">
-      <div class="nav-wrapper paddingLeft">
-        <a href="/" class="brand-logo paddingLeft">UniFind</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/">Home</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a href="/notifications">Notifications</a></li>
-          <li><a href="/my-posts" class="waves-effect waves-light btn pulse red lighten-1">Add Post</a></li>
-          <li>{{> loginButtons}}</li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  <nav class="teal">
+    <div class="nav-wrapper paddingLeft">
+      <a href="/" class="brand-logo paddingLeft">UniFind</a>
+      <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/" class="hoverWhite">Home</a></li>
+        <li><a class="dropdown-button hoverWhite" href="#!" data-activates="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="/notifications" class="hoverWhite">Notifications</a></li>
+        <li><a href="/my-posts" class="waves-effect waves-light btn pulse red lighten-1 hoverWhite">Add Post</a></li>
+        <li>{{> loginButtons}}</li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="side-nav" id="mobile-menu">
+    <li><a href="/">Home</a></li>
+    <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+    <li><a href="/notifications">Notifications</a></li>
+    <li><a href="/my-posts" class="waves-effect waves-light btn pulse red lighten-1">Add Post</a></li>
+  </ul>
 
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="/profile">Profile</a></li>
-    <li><a href="/settings">Settings</a></li>
-    <li><a href="/view-posts">View my posts</a></li>
+    <li><a href="/profile" class="grey-text text-darken-1 hoverWhite">Profile</a></li>
+    <li><a href="/settings" class="grey-text text-darken-1 hoverWhite">Settings</a></li>
+    <li><a href="/view-posts" class="grey-text text-darken-1 hoverWhite">View my posts</a></li>
     <li class="divider"></li>
-    <li><a href="#" class="logout">logout</a></li>
+    <li><a href="#" class="logout grey-text text-darken-1 hoverWhite">logout</a></li>
   </ul>
+
+  <ul id="dropdown2" class="dropdown-content">
+    <li><a href="/profile" class="grey-text text-darken-1 hoverWhite">Profile</a></li>
+    <li><a href="/settings" class="grey-text text-darken-1 hoverWhite">Settings</a></li>
+    <li><a href="/view-posts" class="grey-text text-darken-1 hoverWhite">View my posts</a></li>
+    <li class="divider"></li>
+    <li><a href="#" class="logout grey-text text-darken-1 hoverWhite">logout</a></li>
+  </ul>
+
 </template>

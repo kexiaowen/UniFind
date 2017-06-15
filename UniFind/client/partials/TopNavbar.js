@@ -1,8 +1,6 @@
 // Template.TopNavbar.onRendered(function() {
 //     $('.dropdown-button').dropdown();
 // });
-
-
 Template.TopNavbar.onRendered(function() {
     $('.dropdown-button').dropdown({
           inDuration: 300,
@@ -13,7 +11,10 @@ Template.TopNavbar.onRendered(function() {
           belowOrigin: true, // Displays dropdown below the button
           alignment: 'left' // Displays dropdown with edge aligned to the left of button
         }
-      );
+    );
+    $(".button-collapse").sideNav({
+      closeOnClick: true
+    });
 });
 
 Template.TopNavbar.events({
