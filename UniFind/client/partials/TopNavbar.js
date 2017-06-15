@@ -13,7 +13,8 @@ Template.TopNavbar.onRendered(function() {
         }
     );
     $(".button-collapse").sideNav({
-      closeOnClick: true
+      closeOnClick: true,
+      draggable: true
     });
 });
 

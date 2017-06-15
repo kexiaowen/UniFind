@@ -7,8 +7,8 @@ if(Meteor.isClient){
   });
 
   Accounts.onLogout(function () {
-    //FlowRouter.go('home');
-    FlowRouter.reload();
+    FlowRouter.go('home');
+    // FlowRouter.reload();
   });
 }
 /*
@@ -94,10 +94,26 @@ FlowRouter.route('/login',{
   }
 });
 
+FlowRouter.route('/settings',{
+  name: 'settings',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'Settings'});
+  }
+});
+
+FlowRouter.route('/change-password',{
+  name: 'change-password',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'ChangePassword'});
+  }
+});
+
 FlowRouter.route('/test',{
   name: 'test',
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render('Login');
+    BlazeLayout.render('NewPostLost');
   }
 });
