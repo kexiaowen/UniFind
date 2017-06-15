@@ -1,13 +1,4 @@
-<template name="MyPosts">
-  <!--{{#if $.Session.get 'newPost'}}
-    {{> NewPost}}
-
-  {{else}}
-    <button class="new-post">Add a New Post</button>
-  {{/if}}-->
-  {{> NewPost}}
-
-  <!--
+<template name="ViewPosts">
   <section class="posts">
       {{#if Template.subscriptionsReady}}
       <div class="container">
@@ -25,5 +16,5 @@
       {{else}}
         <p>Loading</p>
       {{/if}}
-  </section>-->
+  </section>
 </template>

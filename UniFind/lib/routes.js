@@ -69,3 +69,35 @@ FlowRouter.route('/search-found-items',{
     }
   }
 });
+
+FlowRouter.route('/view-posts',{
+  name: 'view-posts',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'ViewPosts'});
+  }
+});
+
+FlowRouter.route('/register',{
+  name: 'register',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('HomeLayout', {main: 'Register'});
+  }
+});
+
+FlowRouter.route('/login',{
+  name: 'register',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('HomeLayout', {main: 'Login'});
+  }
+});
+
+FlowRouter.route('/test',{
+  name: 'test',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('Login');
+  }
+});

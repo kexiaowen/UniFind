@@ -6,7 +6,7 @@
         {{> quickForm collection="PostsFound" id=updatePostId type="update" doc=this autosave=true}}
       {{/if}}
     {{else}}
-      <a href="/post/{{_id}}">View Details</a>
+      <a href="/post/{{_id}}"><button class="btn btn-primary">View Details</button></a>
     {{/if}}
     <i class="fa fa-pencil"></i>
     <i class="fa fa-trash"></i>
