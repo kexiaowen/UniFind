@@ -12,7 +12,7 @@ Template.SideNav.events({
     // Get value from form element
     /*var categorySelected = new Array();
     $('#categories input:checked').each(function() {
-      categotySelected.push($(this).attr('value'));
+      categorySelected.push($(this).attr('value'));
     });
     console.log(categorySelected);
     const test = $('#handphone').prop('checked');
@@ -24,18 +24,34 @@ Template.SideNav.events({
     const walletChecked = $('#wallet').prop('checked');
     const othersChecked = $('#others').prop('checked');
 
+    Session.set("searchValue","");
     if (handphoneChecked) {
-
+        Session.set("handphoneChecked", true);
     } else if (jacketChecked) {
-
+        Session.set("jacketChecked", true);
+        Session.set("handphoneChecked", false);
     } else if (laptopChecked) {
-
+        Session.set("laptopChecked", true);
+        Session.set("jacketChecked", false);
+        Session.set("handphoneChecked", false);
     } else if (thumbdriveChecked) {
-
+        Session.set("thumbdriveChecked", true);
+        Session.set("laptopChecked", false);
+        Session.set("jacketChecked", false);
+        Session.set("handphoneChecked", false);
     } else if (walletChecked) {
-
+        Session.set("walletChecked", true);
+        Session.set("thumbdriveChecked", false);
+        Session.set("laptopChecked", false);
+        Session.set("jacketChecked", false);
+        Session.set("handphoneChecked", false);
     } else if (othersChecked) {
-
+        Session.set("othersChecked", true);
+        Session.set("walletChecked", false);
+        Session.set("thumbdriveChecked", false);
+        Session.set("laptopChecked", false);
+        Session.set("jacketChecked", false);
+        Session.set("handphoneChecked", false);
     }
 
     // Get value from form element

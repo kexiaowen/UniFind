@@ -5,7 +5,7 @@ Template.NewPostLost.onRendered(function() {
 });
 
 Template.NewPostLost.events({
-  'submit .newPostFound'(event) {
+  'submit .newPostLost'(event) {
     // Prevent default browser form submit
     event.preventDefault();
 
@@ -15,6 +15,17 @@ Template.NewPostLost.events({
     const category = target.category.value;
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
+
+    PostsLost.insert({
+      summary,
+      category,
+      colour,
+      detailedDesc,
+      createdAt: new Date(), // current time
+      author: this.userId,
+    });
+    alert("Your post is successfully submitted!");
+    $('.newPostLost').trigger('reset');
 
     console.log(summary);
     console.log(category);

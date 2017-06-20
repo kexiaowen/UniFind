@@ -1,7 +1,7 @@
 // import PostSchema from 'schema.js';
-import SimpleSchema from 'simpl-schema';
-SimpleSchema.extendOptions(['autoform']);
-
+//import SimpleSchema from 'simpl-schema';
+//SimpleSchema.extendOptions(['autoform']);
+import { Meteor } from 'meteor/meteor';
 PostsFound = new Mongo.Collection('postsFound');
 PostsLost = new Mongo.Collection('postsLost');
 
@@ -23,7 +23,7 @@ PostsLost.allow({
   }
 });
 
-PostSchema = new SimpleSchema ({
+/*PostSchema = new SimpleSchema ({
 
   summary: {
     type: String,
@@ -87,7 +87,7 @@ PostSchema = new SimpleSchema ({
       type: "hidden"
     }
   }
-});
+});*/
 
 Meteor.methods({
 
@@ -100,5 +100,5 @@ Meteor.methods({
 });
 
 
-PostsLost.attachSchema(PostSchema);
-PostsFound.attachSchema(PostSchema);
+//PostsLost.attachSchema(PostSchema);
+//PostsFound.attachSchema(PostSchema);
