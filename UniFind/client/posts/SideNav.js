@@ -26,32 +26,54 @@ Template.SideNav.events({
 
     Session.set("searchValue","");
     if (handphoneChecked) {
-        Session.set("handphoneChecked", true);
+      Session.set("handphoneChecked", true);
+      Session.set("jacketChecked", false);
+      Session.set("laptopChecked", false);
+      Session.set("thumbdriveChecked", false);
+      Session.set("walletChecked", false);
+      Session.set("othersChecked", false);
     } else if (jacketChecked) {
-        Session.set("jacketChecked", true);
-        Session.set("handphoneChecked", false);
+      Session.set("handphoneChecked", false);
+      Session.set("jacketChecked", true);
+      Session.set("laptopChecked", false);
+      Session.set("thumbdriveChecked", false);
+      Session.set("walletChecked", false);
+      Session.set("othersChecked", false);
     } else if (laptopChecked) {
-        Session.set("laptopChecked", true);
-        Session.set("jacketChecked", false);
-        Session.set("handphoneChecked", false);
+      Session.set("handphoneChecked", false);
+      Session.set("jacketChecked", false);
+      Session.set("laptopChecked", true);
+      Session.set("thumbdriveChecked", false);
+      Session.set("walletChecked", false);
+      Session.set("othersChecked", false);
     } else if (thumbdriveChecked) {
-        Session.set("thumbdriveChecked", true);
-        Session.set("laptopChecked", false);
-        Session.set("jacketChecked", false);
-        Session.set("handphoneChecked", false);
+      Session.set("handphoneChecked", false);
+      Session.set("jacketChecked", false);
+      Session.set("laptopChecked", false);
+      Session.set("thumbdriveChecked", true);
+      Session.set("walletChecked", false);
+      Session.set("othersChecked", false);
     } else if (walletChecked) {
-        Session.set("walletChecked", true);
-        Session.set("thumbdriveChecked", false);
-        Session.set("laptopChecked", false);
-        Session.set("jacketChecked", false);
-        Session.set("handphoneChecked", false);
+      Session.set("handphoneChecked", false);
+      Session.set("jacketChecked", false);
+      Session.set("laptopChecked", false);
+      Session.set("thumbdriveChecked", false);
+      Session.set("walletChecked", true);
+      Session.set("othersChecked", false);
     } else if (othersChecked) {
-        Session.set("othersChecked", true);
-        Session.set("walletChecked", false);
-        Session.set("thumbdriveChecked", false);
-        Session.set("laptopChecked", false);
-        Session.set("jacketChecked", false);
-        Session.set("handphoneChecked", false);
+      Session.set("handphoneChecked", false);
+      Session.set("jacketChecked", false);
+      Session.set("laptopChecked", false);
+      Session.set("thumbdriveChecked", false);
+      Session.set("walletChecked", false);
+      Session.set("othersChecked", true);
+    } else {
+      Session.set("handphoneChecked", false);
+      Session.set("jacketChecked", false);
+      Session.set("laptopChecked", false);
+      Session.set("thumbdriveChecked", false);
+      Session.set("walletChecked", false);
+      Session.set("othersChecked", false);
     }
 
     // Get value from form element

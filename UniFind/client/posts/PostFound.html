@@ -1,4 +1,4 @@
-<template name="PostFound">
+<!-- <template name="PostFound">
   <article class="post">
     <h3>{{summary}}</h3>
     {{#if editMode}}
@@ -11,4 +11,42 @@
     <i class="fa fa-pencil"></i>
     <i class="fa fa-trash"></i>
   </article>
+</template> -->
+
+<template name="PostFound">
+  <div class="col m6 s12">
+    <div class="card-panel hoverable my-post-card-panel">
+      <img src="http://lorempixel.com/100/190/nature/6">
+      <h6>
+        <a href="">
+          <i class="material-icons right teal-text delete-post tooltipped" data-position="bottom" data-delay="50" data-tooltip="delete">delete</i>
+        </a>
+        <a href="#">
+          <i class="material-icons right padding-left teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="edit">mode_edit</i>
+        </a>
+      </h6>
+      <h5 class="truncate grey-text text-darken-4">
+        <span class="grey-text text-darken-4">{{summary}}</span>
+      </h5>
+      <h6>
+        <span class="teal-text">Category: </span>
+        <span class="grey-text text-darken-2">{{category}}</span>
+      </h6>
+      <h6>
+        <span class="teal-text">Colour: </span>
+        <span class="grey-text text-darken-2">{{colour}}</span>
+      </h6>
+      <h6>
+        <span class="teal-text">Detailed Descriptions: </span>
+        <span class="grey-text text-darken-2 truncate">{{desc}}</span>
+      </h6>
+      <h6>
+        <span class="teal-text">Date: </span>
+        <span class="grey-text text-darken-2">{{createdAt}}</span>
+      </h6>
+      <p>
+        <a href="/post/{{_id}}" class="waves-effect waves-teal btn hoverWhite">Details</a>
+      </p>
+    </div>
+  </div>
 </template>

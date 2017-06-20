@@ -14,5 +14,9 @@ Template.ThumbnailPostLost.helpers({
   desc: function(){
     var post = PostsLost.findOne({_id: this._id});
     return post.desc;
+  },
+  date: function(){
+    var post = PostsFound.findOne({_id: this._id});
+    return post.createdAt;
   }
 });

@@ -17,10 +17,10 @@ Template.NewPostLost.events({
     const detailedDesc = target.detailedDesc.value;
 
     PostsLost.insert({
-      summary,
-      category,
-      colour,
-      detailedDesc,
+      summary: summary,
+      category: category,
+      colour: colour,
+      desc: detailedDesc,
       createdAt: new Date(), // current time
       author: this.userId,
     });

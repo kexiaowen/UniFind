@@ -114,6 +114,6 @@ FlowRouter.route('/test',{
   name: 'test',
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render('NewPostLost');
+    BlazeLayout.render('Home');
   }
 });

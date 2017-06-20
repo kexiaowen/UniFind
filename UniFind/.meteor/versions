@@ -63,6 +63,7 @@ localstorage@1.1.0
 logging@1.1.17
 matb33:bootstrap-base@10.0.0
 matb33:bootstrap-glyphicons@10.0.0
+matdutour:popup-confirm@0.2.2
 materialize:materialize@0.98.2
 meteor@1.6.1
 meteor-base@1.1.0

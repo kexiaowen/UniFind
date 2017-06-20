@@ -11,18 +11,18 @@ PostSchema = new SimpleSchema ({
   category: {
     type: String,
     label: "Category",
-    allowedValues: ["Handphone", "Laptop", "Wallet", "Jacket", "Thumbdrive", "Waterbottle", "Others"],
+    /*allowedValues: ["Handphone", "Laptop", "Wallet", "Jacket", "Thumbdrive", "Waterbottle", "Others"],
     autoform: {
           afFieldInput: {
             firstOption: "(Select a category)"
           }
-    }
+    }*/
   },
 
   colour:{
     type: String,
     label: "Colour",
-    optional: true,
+    optional: true/*,
     autoform:{
       type: "select-radio-inline",
       options: [
@@ -32,16 +32,16 @@ PostSchema = new SimpleSchema ({
         {label: "Silver"},
         {label:  "Others"}
       ]
-    }
+    }*/
 
   },
   desc: {
     type: String,
-    label: "Description (Useful information)",
+    label: "Description (Useful information)"/*,
     autoform:{
       type: "textarea",
       rows: 6
-    }
+    }*/
   },
 
   author: {
@@ -49,10 +49,10 @@ PostSchema = new SimpleSchema ({
     label: "Author",
     autoValue: function(){
       return this.userId
-    },
+    }/*,
     autoform: {
       type: "hidden"
-    }
+    }*/
   },
   createdAt: {
     type: Date,
@@ -60,9 +60,9 @@ PostSchema = new SimpleSchema ({
     autoValue: function(){
       return new Date()
 
-    },
+    }/*,
     autoform: {
       type: "hidden"
-    }
+    }*/
   }
 });

@@ -1,20 +1,38 @@
 <template name="ViewPosts">
   <section class="posts">
       {{#if Template.subscriptionsReady}}
-      <div class="container">
-        <h2>Reported Lost Items</h2>
+      <div class="row">
+        <div class="col s6">
+          <h4 class="grey-text text-darken-2">Reported Lost Items</h4>
+            {{#each postsLost}}
+              {{> PostLost}}
+            {{/each}}
+        </div>
+
+        <div class="col s6">
+          <h4 class="grey-text text-darken-2">Reported Found Items</h4>
+            {{#each postsFound}}
+              {{> PostFound}}
+            {{/each}}
+        </div>
+      </div>
+      {{else}}
+        <p>Loading</p>
+      {{/if}}
+      <!-- <div class="container">
+        <h4 class="grey-text text-darken-2">Reported Lost Items</h4>
           {{#each postsLost}}
             {{> PostLost}}
           {{/each}}
       </div>
       <div class="container">
-        <h2>Reported Found Items</h2>
+        <h4>Reported Found Items</h4>
           {{#each postsFound}}
             {{> PostFound}}
           {{/each}}
       </div>
       {{else}}
         <p>Loading</p>
-      {{/if}}
+      {{/if}} -->
   </section>
 </template>
