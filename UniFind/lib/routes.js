@@ -8,7 +8,7 @@ if(Meteor.isClient){
 
   Accounts.onLogout(function () {
     FlowRouter.go('home');
-    // FlowRouter.reload();
+    FlowRouter.reload();
   });
 }
 /*
@@ -43,6 +43,22 @@ FlowRouter.route('/post/:id',{
   action() {
     GAnalytics.pageview();
     BlazeLayout.render('MainLayout', {main: 'PostSingle'});
+  }
+});
+
+FlowRouter.route('/edit-found/:id',{
+  name: 'edit-found',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'EditPostFound'});
+  }
+});
+
+FlowRouter.route('/edit-lost/:id',{
+  name: 'edit-lost',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'EditPostLost'});
   }
 });
 

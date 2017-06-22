@@ -16,15 +16,15 @@ Template.LostItems.onCreated(function(){
 Template.LostItems.helpers({
   posts: function() {
     if(Session.get("searchValue")){
-      var post = PostsFound.find({}, {sort: [["score"]]});
+      var post = PostsLost.find({}, {sort: [["score"]]});
     }
     else{
       if(Session.get("hasQuery")){
         var queryParam = FlowRouter.getQueryParam("cat");
-        post = PostsFound.find({category: queryParam});
+        post = PostsLost.find({category: queryParam});
       }
       else{
-        post = PostsFound.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
+        post = PostsLost.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
       }
     }
     return post;

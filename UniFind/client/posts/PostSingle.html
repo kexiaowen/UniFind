@@ -1,8 +1,17 @@
 <template name="PostSingle">
   <div class="container">
-    <h2>{{post.summary}}</h2>
-    <h5>{{post.category}}</h5>
-    <h5>{{post.colour}}</h5>
-    <h5>{{post.desc}}</h5>
+    <h2 class="grey-text text-darken-3">{{post.summary}}</h2>
+    <h6>
+      <span class="teal-text">Category:</span>
+      <span class="grey-text">{{post.category}}</span>
+    </h6>
+    <h6>
+      <span class="teal-text">Colour:</span>
+      <span class="grey-text">{{post.colour}}</span>
+    </h6>
+    <h6>
+      <span class="teal-text">Detailed Descriptions:</span>
+    </h6>
+    <p class="grey-text">{{post.desc}}</p>
   </div>
 </template>

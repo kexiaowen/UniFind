@@ -1,6 +1,6 @@
 Template.NewPostLost.onRendered(function() {
-  $('#detailed-desc').val('');
-  $('#detailed-desc').trigger('autoresize');
+  $('#detailedDesc').val('');
+  $('#detailedDesc').trigger('autoresize');
   $('select').material_select();
 });
 
@@ -15,7 +15,7 @@ Template.NewPostLost.events({
     const category = target.category.value;
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
-    
+
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth() + 1;

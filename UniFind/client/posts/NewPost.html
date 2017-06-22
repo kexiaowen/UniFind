@@ -1,6 +1,6 @@
 <template name="NewPost">
-  <div class="center-align">
-    {{#if $.Session.get 'newPostLost'}}
+  <!-- <div class="center-align">
+    {{#if $.Session.get 'newPostLost'}} -->
       <!--<div class="row">
         <div class="col-xs-6 col-md-4"></div>
         <div class="col-xs-6 col-md-4"><h3>Report Lost Items</h3></div>
@@ -10,7 +10,7 @@
         <i class="fa fa-close"></i>
         {{> quickForm collection="PostsLost" id="insertPostForm" type="insert" class="new-post-form"}}
       </div>-->
-      {{> NewPostLost}}
+      <!-- {{> NewPostLost}}
 
     {{else}}
       {{#if $.Session.get 'displayLostBtn'}}
@@ -18,18 +18,33 @@
       {{/if}}
     {{/if}}
 
-    {{#if $.Session.get 'newPostFound'}}
+    {{#if $.Session.get 'newPostFound'}} -->
       <!--<h3>Report Found Items</h3>
       <div class="container">
         <i class="fa fa-close"></i>
         {{> quickForm collection="PostsFound" id="insertPostForm" type="insert" schema=PostSchema class="new-post-form"}}
       </div>-->
-      {{> NewPostFound}}
+      <!-- {{> NewPostFound}}
     {{else}}
       {{#if $.Session.get 'displayFoundBtn'}}
           <button class="btn btn-primary new-post-found">Report Found Items</button>
       {{/if}}
     {{/if}}
-  </div>
+  </div> -->
 
+  {{#if $.Session.get 'newPostLost'}}
+    {{> NewPostLost}}
+  {{else}}
+    {{#if $.Session.get 'newPostFound'}}
+      {{> NewPostFound}}
+    {{/if}}
+  {{/if}}
+  <div class="btns-padding center-align">
+    {{#if $.Session.get 'displayLostBtn'}}
+        <button class="btn new-post-lost">Report Lost Items</button>
+    {{/if}}
+    {{#if $.Session.get 'displayFoundBtn'}}
+        <button class="btn new-post-found">Report Found Items</button>
+    {{/if}}
+  </div>
 </template>
