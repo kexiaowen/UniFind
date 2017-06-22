@@ -15,6 +15,18 @@ Template.NewPostLost.events({
     const category = target.category.value;
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
+    
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth() + 1;
+    var y = date.getFullYear();
+    var h = date.getHours();
+    var min = date.getMinutes();
+    var s = date.getSeconds();
+    var formattedDate = '' + y + '-' + (m<=9 ? '0' + m : m) + '-' +
+                        (d <= 9 ? '0' + d : d) + ' ' + (h<=9 ? '0' + h : h) + ':'
+                        + (min<=9 ? '0' + min : min) + ':' + (s<=9 ? '0' + s : s);
+
 
     PostsLost.insert({
       summary: summary,
@@ -22,7 +34,7 @@ Template.NewPostLost.events({
       colour: colour,
       desc: detailedDesc,
       createdAt: new Date(), // current time
-      author: this.userId,
+      author: Meteor.userId(),
     });
     alert("Your post is successfully submitted!");
     $('.newPostLost').trigger('reset');

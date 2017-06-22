@@ -1,33 +1,35 @@
 <template name="NewPost">
-  {{#if $.Session.get 'newPostLost'}}
-    <!--<div class="row">
-      <div class="col-xs-6 col-md-4"></div>
-      <div class="col-xs-6 col-md-4"><h3>Report Lost Items</h3></div>
-      <div class="col-xs-6 col-md-4"></div>
-    </div>
-    <div class="container">
-      <i class="fa fa-close"></i>
-      {{> quickForm collection="PostsLost" id="insertPostForm" type="insert" class="new-post-form"}}
-    </div>-->
-    {{> NewPostLost}}
+  <div class="center-align">
+    {{#if $.Session.get 'newPostLost'}}
+      <!--<div class="row">
+        <div class="col-xs-6 col-md-4"></div>
+        <div class="col-xs-6 col-md-4"><h3>Report Lost Items</h3></div>
+        <div class="col-xs-6 col-md-4"></div>
+      </div>
+      <div class="container">
+        <i class="fa fa-close"></i>
+        {{> quickForm collection="PostsLost" id="insertPostForm" type="insert" class="new-post-form"}}
+      </div>-->
+      {{> NewPostLost}}
 
-  {{else}}
-    {{#if $.Session.get 'displayLostBtn'}}
-      <button class="btn btn-danger new-post-lost">Report Lost Items</button>
+    {{else}}
+      {{#if $.Session.get 'displayLostBtn'}}
+          <button class="btn btn-danger new-post-lost">Report Lost Items</button>
+      {{/if}}
     {{/if}}
-  {{/if}}
 
-  {{#if $.Session.get 'newPostFound'}}
-    <!--<h3>Report Found Items</h3>
-    <div class="container">
-      <i class="fa fa-close"></i>
-      {{> quickForm collection="PostsFound" id="insertPostForm" type="insert" schema=PostSchema class="new-post-form"}}
-    </div>-->
-    {{> NewPostFound}}
-  {{else}}
-    {{#if $.Session.get 'displayFoundBtn'}}
-      <button class="btn btn-primary new-post-found">Report Found Items</button>
+    {{#if $.Session.get 'newPostFound'}}
+      <!--<h3>Report Found Items</h3>
+      <div class="container">
+        <i class="fa fa-close"></i>
+        {{> quickForm collection="PostsFound" id="insertPostForm" type="insert" schema=PostSchema class="new-post-form"}}
+      </div>-->
+      {{> NewPostFound}}
+    {{else}}
+      {{#if $.Session.get 'displayFoundBtn'}}
+          <button class="btn btn-primary new-post-found">Report Found Items</button>
+      {{/if}}
     {{/if}}
-  {{/if}}
+  </div>
 
 </template>

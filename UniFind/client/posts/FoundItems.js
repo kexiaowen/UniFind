@@ -3,20 +3,31 @@ Template.FoundItems.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsFound', Session.get("searchValue"));
   });
+  Session.set("hasQuery", false);
   Session.set("searchValue", "");
-  Session.set("handphoneChecked", false);
+  /*Session.set("handphoneChecked", false);
   Session.set("jacketChecked", false);
   Session.set("thumbdriveChecked", false);
   Session.set("waterbottleChecked", false);
-  Session.set("othersChecked", false);
+  Session.set("othersChecked", false);*/
 });
 
 Template.FoundItems.helpers({
   posts: function() {
     if(Session.get("searchValue")){
-      return PostsFound.find({}, {sort: [["score"]]});
-    } else{
-      if(Session.get("handphoneChecked")){
+      var post = PostsFound.find({}, {sort: [["score"]]});
+    }
+    else{
+      if(Session.get("hasQuery")){
+        var queryParam = FlowRouter.getQueryParam("cat");
+        post = PostsFound.find({category: queryParam});
+      }
+      else{
+        post = PostsFound.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
+      }
+    }
+    return post;
+      /*if(Session.get("handphoneChecked")){
         var post = PostsFound.find({category: "Handphone"});
       }
       else if(Session.get("jacketChecked")){
@@ -33,12 +44,8 @@ Template.FoundItems.helpers({
       }
       else if(Session.get("othersChecked")){
         post = PostsFound.find({category: "Others"});
-      }
-      else{
-        post = PostsFound.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
-      }
-      return post;
-    }
+      }*/
+
   }
 });
 
@@ -49,5 +56,8 @@ Template.FoundItems.events({
   },
   "click #close": function(){
     Session.set("searchValue", "");
+  },
+  "click #home": function(){
+    //view all posts
   }
 });

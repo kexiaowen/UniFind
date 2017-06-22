@@ -25,56 +25,65 @@ Template.SideNav.events({
     const othersChecked = $('#others').prop('checked');
 
     Session.set("searchValue","");
+    Session.set("hasQuery", true);
     if (handphoneChecked) {
-      Session.set("handphoneChecked", true);
+      FlowRouter.setQueryParams({cat: "Handphone"});
+      /*Session.set("handphoneChecked", true);
       Session.set("jacketChecked", false);
       Session.set("laptopChecked", false);
       Session.set("thumbdriveChecked", false);
       Session.set("walletChecked", false);
-      Session.set("othersChecked", false);
+      Session.set("othersChecked", false);*/
     } else if (jacketChecked) {
-      Session.set("handphoneChecked", false);
+      FlowRouter.setQueryParams({cat: "Jacket"});
+      /*Session.set("handphoneChecked", false);
       Session.set("jacketChecked", true);
       Session.set("laptopChecked", false);
       Session.set("thumbdriveChecked", false);
       Session.set("walletChecked", false);
-      Session.set("othersChecked", false);
+      Session.set("othersChecked", false);*/
     } else if (laptopChecked) {
-      Session.set("handphoneChecked", false);
+      FlowRouter.setQueryParams({cat: "Laptop"});
+      /*Session.set("handphoneChecked", false);
       Session.set("jacketChecked", false);
       Session.set("laptopChecked", true);
       Session.set("thumbdriveChecked", false);
       Session.set("walletChecked", false);
-      Session.set("othersChecked", false);
+      Session.set("othersChecked", false);*/
     } else if (thumbdriveChecked) {
-      Session.set("handphoneChecked", false);
+      FlowRouter.setQueryParams({cat: "Thumbdrive"});
+      /*Session.set("handphoneChecked", false);
       Session.set("jacketChecked", false);
       Session.set("laptopChecked", false);
       Session.set("thumbdriveChecked", true);
       Session.set("walletChecked", false);
-      Session.set("othersChecked", false);
+      Session.set("othersChecked", false);*/
     } else if (walletChecked) {
-      Session.set("handphoneChecked", false);
+      FlowRouter.setQueryParams({cat: "Wallet"});
+      /*Session.set("handphoneChecked", false);
       Session.set("jacketChecked", false);
       Session.set("laptopChecked", false);
       Session.set("thumbdriveChecked", false);
       Session.set("walletChecked", true);
-      Session.set("othersChecked", false);
+      Session.set("othersChecked", false);*/
     } else if (othersChecked) {
-      Session.set("handphoneChecked", false);
+      FlowRouter.setQueryParams({cat: "Others"});
+      /*Session.set("handphoneChecked", false);
       Session.set("jacketChecked", false);
       Session.set("laptopChecked", false);
       Session.set("thumbdriveChecked", false);
       Session.set("walletChecked", false);
-      Session.set("othersChecked", true);
+      Session.set("othersChecked", true);*/
     } else {
-      Session.set("handphoneChecked", false);
+      /*Session.set("handphoneChecked", false);
       Session.set("jacketChecked", false);
       Session.set("laptopChecked", false);
       Session.set("thumbdriveChecked", false);
       Session.set("walletChecked", false);
-      Session.set("othersChecked", false);
+      Session.set("othersChecked", false);*/
+      Session.set("hasQuery", false);
     }
+
 
     // Get value from form element
     const target = event.target;

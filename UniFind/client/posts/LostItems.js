@@ -3,17 +3,32 @@ Template.LostItems.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsLost', Session.get("searchValue"));
   });
+  Session.set("hasQuery", false);
   Session.set("searchValue", "");
+  /*Session.set("searchValue", "");
   Session.set("handphoneChecked", false);
   Session.set("jacketChecked", false);
   Session.set("thumbdriveChecked", false);
   Session.set("waterbottleChecked", false);
-  Session.set("othersChecked", false);
+  Session.set("othersChecked", false);*/
 });
 
 Template.LostItems.helpers({
   posts: function() {
     if(Session.get("searchValue")){
+      var post = PostsFound.find({}, {sort: [["score"]]});
+    }
+    else{
+      if(Session.get("hasQuery")){
+        var queryParam = FlowRouter.getQueryParam("cat");
+        post = PostsFound.find({category: queryParam});
+      }
+      else{
+        post = PostsFound.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
+      }
+    }
+    return post;
+    /*if(Session.get("searchValue")){
       return PostsLost.find({}, {sort: [["score"]]});
     } else{
       if(Session.get("handphoneChecked")){
@@ -38,7 +53,7 @@ Template.LostItems.helpers({
         post = PostsLost.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
       }
       return post;
-    }
+    }*/
   }
 });
 

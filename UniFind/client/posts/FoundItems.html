@@ -24,16 +24,19 @@
         <section class="posts">
             {{#if Template.subscriptionsReady}}
               <div class="row">
+
                 {{#each posts}}
-                  <!--{{> Post}}-->
                   {{> ThumbnailPostFound}}
                 {{/each}}
+
               </div>
             {{else}}
               <p>Loading</p>
             {{/if}}
+            <a id="home" class="right btn-floating btn-large waves-effect waves-light"><i class="material-icons">home</i></a>
         </section>
       </div>
     </div>
+
   </div>
 </template>

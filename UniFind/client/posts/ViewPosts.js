@@ -7,9 +7,9 @@ Template.ViewPosts.onCreated(function(){
 });
 Template.ViewPosts.helpers({
   postsLost: ()=> {
-    return PostsLost.find({author: this.userId});
+    return PostsLost.find();
   },
   postsFound: ()=> {
-    return PostsFound.find({author: this.userId});
+    return PostsFound.find();
   }
 });
