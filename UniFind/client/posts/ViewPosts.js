@@ -3,6 +3,7 @@ Template.ViewPosts.onCreated(function(){
   self.autorun(function() {
     self.subscribe('ownPostsLost');
     self.subscribe('ownPostsFound');
+    self.subscribe('images');
   });
 });
 Template.ViewPosts.helpers({

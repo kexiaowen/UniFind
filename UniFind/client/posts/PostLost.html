@@ -1,22 +1,11 @@
-<!-- <template name="PostLost">
-  <article class="post">
-    <h3>{{summary}}</h3>
-    {{#if editMode}}
-      {{#if isAuthor}}
-        {{> quickForm collection="PostsLost" id=updatePostId type="update" doc=this autosave=true}}
-      {{/if}}
-    {{else}}
-      <a href="/post/{{_id}}"><button class="btn btn-primary">View Details</button></a>
-    {{/if}}
-    <i class="fa fa-pencil"></i>
-    <i class="fa fa-trash"></i>
-  </article>
-</template> -->
-
 <template name="PostLost">
   <div class="col m6 s12">
     <div class="card-panel hoverable my-post-card-panel">
-      <img src="http://lorempixel.com/100/190/nature/6">
+      {{#if showImage.isUploaded}}
+        <img src="{{showImage.url store="thumbs"}}" width=170 height=170>
+      {{else}}
+        <img src="imgs/UnifindThumb.png" width=170 height=160>
+      {{/if}}
       <h6>
         <a href="#deletePost" class="delete-post-lost-btn">
           <i class="material-icons right teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="delete">delete</i>
@@ -60,3 +49,17 @@
     </div>
   </div>
 </template>
+<!-- <template name="PostLost">
+  <article class="post">
+    <h3>{{summary}}</h3>
+    {{#if editMode}}
+      {{#if isAuthor}}
+        {{> quickForm collection="PostsLost" id=updatePostId type="update" doc=this autosave=true}}
+      {{/if}}
+    {{else}}
+      <a href="/post/{{_id}}"><button class="btn btn-primary">View Details</button></a>
+    {{/if}}
+    <i class="fa fa-pencil"></i>
+    <i class="fa fa-trash"></i>
+  </article>
+</template> -->

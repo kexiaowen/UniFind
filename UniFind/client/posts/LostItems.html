@@ -6,6 +6,7 @@
     </div>
 
     <div class="col s10">
+      <h6 class="container title teal-text">Reported lost items are listed below:</h6>
       <div class="container paddingTop">
         <!-- Search bar-->
         <nav class="nav-white-colour">
@@ -26,11 +27,15 @@
               <div class="row">
                 {{#each posts}}
                   {{> ThumbnailPostLost}}
+                {{else}}
+                  <p>No posts yet</p>
                 {{/each}}
               </div>
             {{else}}
               <p>Loading</p>
             {{/if}}
+            <a id="home" class="right btn-floating btn-large waves-effect waves-light"><i class="material-icons">home</i></a>
+        
         </section>
       </div>
     </div>

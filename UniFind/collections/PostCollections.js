@@ -4,6 +4,27 @@
 import { Meteor } from 'meteor/meteor';
 PostsFound = new Mongo.Collection('postsFound');
 PostsLost = new Mongo.Collection('postsLost');
+Images = new FS.Collection("images", {
+  filter: {
+    maxSize: 1048576, // in bytes
+    allow: {
+      contentTypes: ['image/*'],
+      extensions: ['png','jpg','jpeg']
+    },
+    onInvalid: function (message) {
+      alert(message);
+    }
+  },
+  stores: [
+    new FS.Store.FileSystem("thumbs", {
+        transformWrite: function(fileObj, readStream, writeStream) {
+          // Transform the image into a 10x10px thumbnail
+          gm(readStream, fileObj.name()).resize('200', '200').stream().pipe(writeStream);
+        }
+    }),
+    new FS.Store.FileSystem("images", {path: "~/uploads"})
+  ]
+});
 
 PostsFound.allow({
   insert: function(userId,doc){
@@ -20,6 +41,32 @@ PostsLost.allow({
   },
   update: function(userId, doc){
     return !!userId;
+  }
+});
+
+Images.allow({
+  insert: function () {
+    // add custom authentication code here
+    return true;
+  },
+  update: function(){
+    return true;
+  },
+  remove: function(){
+    return true;
+  },
+  download: function(userId, fileObj) {
+     return true;
+ }
+});
+
+Meteor.methods({
+  
+  deletePostLost:function(id) {
+    PostsLost.remove(id);
+  },
+  deletePostFound:function(id) {
+    PostsFound.remove(id);
   }
 });
 
@@ -89,15 +136,7 @@ PostsLost.allow({
   }
 });*/
 
-Meteor.methods({
 
-  deletePostFound:function(id) {
-    PostsFound.remove(id);
-  },
-  deletePostLost:function(id) {
-    PostsLost.remove(id);
-  }
-});
 
 
 //PostsLost.attachSchema(PostSchema);

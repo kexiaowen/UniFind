@@ -33,6 +33,11 @@ Template.EditPostFound.events({
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
 
+    var files = document.querySelector('#fileInput').files;
+    if(files.length > 0){
+      var fileObj = Images.insert(files[0]);
+    }
+
     var id = FlowRouter.getParam('id');
     // update form with new inputs
     PostsFound.update(id, {
@@ -40,9 +45,11 @@ Template.EditPostFound.events({
         summary: summary,
         category: category,
         colour: colour,
-        desc: detailedDesc
+        desc: detailedDesc,
+        file: fileObj
       }
     });
     alert("Your have successfully updated your post!");
+    FlowRouter.go('view-posts');
   }
 });

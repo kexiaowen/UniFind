@@ -1,14 +1,21 @@
+Template.PostFound.onRendered(function() {
+  $('.tooltipped').tooltip({delay: 50});
+  $('.modal').modal();
+
+});
+
 Template.PostFound.onCreated(function(){
   this.editMode = new ReactiveVar(false);
   Session.set("deletePostFoundId", "");
 });
 
-Template.PostFound.onRendered(function() {
-  $('.tooltipped').tooltip({delay: 50});
-  $('.modal').modal();
-});
-
 Template.PostFound.helpers({
+  showImage: function(){
+    var post = PostsFound.findOne({_id: this._id});
+    var imgId = post.file._id;
+    var image = Images.findOne({_id: imgId});
+    return image;
+  },
   updatePostId: function() {
     return this._id;
   },

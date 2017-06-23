@@ -9,6 +9,12 @@ Template.PostLost.onCreated(function(){
 });
 
 Template.PostLost.helpers({
+  showImage: function(){
+    var post = PostsLost.findOne({_id: this._id});
+    var imgId = post.file._id;
+    var image = Images.findOne({_id: imgId});
+    return image;
+  },
   updatePostId: function() {
     return this._id;
   },
@@ -37,7 +43,7 @@ Template.PostLost.events({
     Session.set("deletePostLostId", this._id);
   },
   'click .confirm-delete' : function() {
-    var postId = Session.get("deletePostLostId")
+    var postId = Session.get("deletePostLostId");
     Meteor.call('deletePostLost', postId);
     FlowRouter.reload();
   }

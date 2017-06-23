@@ -38,6 +38,14 @@ FlowRouter.route('/my-posts',{
   }
 });
 
+FlowRouter.route('/suggested-posts',{
+  name: 'suggested-posts',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'SuggestedPosts'});
+  }
+});
+
 FlowRouter.route('/post/:id',{
   name: 'post',
   action() {
@@ -45,7 +53,6 @@ FlowRouter.route('/post/:id',{
     BlazeLayout.render('MainLayout', {main: 'PostSingle'});
   }
 });
-
 FlowRouter.route('/edit-found/:id',{
   name: 'edit-found',
   action() {
@@ -61,7 +68,6 @@ FlowRouter.route('/edit-lost/:id',{
     BlazeLayout.render('MainLayout', {main: 'EditPostLost'});
   }
 });
-
 FlowRouter.route('/search-lost-items',{
   name: 'lost-items',
   action() {

@@ -2,9 +2,11 @@ Template.LostItems.onCreated(function(){
   var self = this;
   self.autorun(function() {
     self.subscribe('allPostsLost', Session.get("searchValue"));
+    self.subscribe('images');
   });
   Session.set("hasCatQuery", false);
   Session.set("hasColQuery", false);
+
   Session.set("searchValue", "");
   /*Session.set("searchValue", "");
   Session.set("handphoneChecked", false);
@@ -25,7 +27,7 @@ Template.LostItems.helpers({
         post = PostsLost.find({category: queryParam, colour: colourParam});
       } else if (Session.get("hasCatQuery")) {
         var queryParam = FlowRouter.getQueryParam("cat");
-        post = postsLost.find({category: queryParam});
+        post = PostsLost.find({category: queryParam});
       } else if (Session.get("hasColQuery")) {
         var colourParam = FlowRouter.getQueryParam("colour");
         post = PostsLost.find({colour: colourParam});
@@ -69,6 +71,12 @@ Template.LostItems.events({
     Session.set("searchValue", $("#searchValue").val());
   },
   "click #close": function(){
+    Session.set("searchValue", "");
+  },
+  "click #home": function(){
+    //view all posts
+    Session.set("hasCatQuery", false);
+    Session.set("hasColQuery", false);
     Session.set("searchValue", "");
   }
 });

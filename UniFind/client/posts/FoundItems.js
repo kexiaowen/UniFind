@@ -2,6 +2,7 @@ Template.FoundItems.onCreated(function(){
   var self = this;
   self.autorun(function() {
     self.subscribe('allPostsFound', Session.get("searchValue"));
+    self.subscribe('images');
   });
   Session.set("hasCatQuery", false);
   Session.set("hasColQuery", false);
@@ -65,5 +66,8 @@ Template.FoundItems.events({
   },
   "click #home": function(){
     //view all posts
+    Session.set("hasCatQuery", false);
+    Session.set("hasColQuery", false);
+    Session.set("searchValue", "");
   }
 });

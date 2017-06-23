@@ -5,9 +5,12 @@ Template.NewPostFound.onRendered(function() {
 });
 
 Template.NewPostFound.events({
-  "submit .newPostFound"(event) {
+
+  'submit .newPostFound'(event) {
     // Prevent default browser form submit
     event.preventDefault();
+    var files = document.querySelector('#fileInput').files;
+    //var file = files[0];
 
     // Get value from form element
     const target = event.target;
@@ -15,6 +18,10 @@ Template.NewPostFound.events({
     const category = target.category.value;
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
+
+    if(files.length > 0){
+      var fileObj = Images.insert(files[0]);
+    }
 
     var date = new Date();
     var d = date.getDate();
@@ -34,9 +41,13 @@ Template.NewPostFound.events({
       colour: colour,
       desc: detailedDesc,
       createdAt: formattedDate, // current time
+      year: y,
       author: Meteor.userId(),
+      file: fileObj,
     });
     alert("Your post is successfully submitted!");
     $('.newPostFound').trigger('reset');
+    FlowRouter.go('suggested-posts');
+    
   },
 });

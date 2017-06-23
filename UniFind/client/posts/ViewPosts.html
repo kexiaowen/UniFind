@@ -3,16 +3,20 @@
       {{#if Template.subscriptionsReady}}
       <div class="row">
         <div class="col s6">
-          <h4 class="grey-text text-darken-2">Reported Lost Items</h4>
+          <h4 class="center-align grey-text text-darken-2">Reported Lost Items</h4>
             {{#each postsLost}}
               {{> PostLost}}
+            {{else}}
+              <p>No posts yet</p>
             {{/each}}
         </div>
 
         <div class="col s6">
-          <h4 class="grey-text text-darken-2">Reported Found Items</h4>
+          <h4 class="center-align grey-text text-darken-2">Reported Found Items</h4>
             {{#each postsFound}}
               {{> PostFound}}
+            {{else}}
+              <p>No posts yet</p>
             {{/each}}
         </div>
       </div>
