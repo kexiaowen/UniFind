@@ -3,7 +3,8 @@ Template.FoundItems.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsFound', Session.get("searchValue"));
   });
-  Session.set("hasQuery", false);
+  Session.set("hasCatQuery", false);
+  Session.set("hasColQuery", false);
   Session.set("searchValue", "");
   /*Session.set("handphoneChecked", false);
   Session.set("jacketChecked", false);
@@ -16,13 +17,18 @@ Template.FoundItems.helpers({
   posts: function() {
     if(Session.get("searchValue")){
       var post = PostsFound.find({}, {sort: [["score"]]});
-    }
-    else{
-      if(Session.get("hasQuery")){
+    } else {
+      if(Session.get("hasCatQuery") && Session.get("hasColQuery")){
+        var queryParam = FlowRouter.getQueryParam("cat");
+        var colourParam = FlowRouter.getQueryParam("colour");
+        post = PostsFound.find({category: queryParam, colour: colourParam});
+      } else if (Session.get("hasCatQuery")) {
         var queryParam = FlowRouter.getQueryParam("cat");
         post = PostsFound.find({category: queryParam});
-      }
-      else{
+      } else if (Session.get("hasColQuery")) {
+        var colourParam = FlowRouter.getQueryParam("colour");
+        post = PostsFound.find({colour: colourParam});
+      } else {
         post = PostsFound.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
       }
     }

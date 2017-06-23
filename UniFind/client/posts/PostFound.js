@@ -1,11 +1,11 @@
-Template.PostFound.onRendered(function() {
-  $('.tooltipped').tooltip({delay: 50});
-  $('.modal').modal();
-});
-
 Template.PostFound.onCreated(function(){
   this.editMode = new ReactiveVar(false);
   Session.set("deletePostFoundId", "");
+});
+
+Template.PostFound.onRendered(function() {
+  $('.tooltipped').tooltip({delay: 50});
+  $('.modal').modal();
 });
 
 Template.PostFound.helpers({
