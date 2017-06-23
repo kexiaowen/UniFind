@@ -5,6 +5,7 @@ Template.PostLost.onRendered(function() {
 
 Template.PostLost.onCreated(function(){
   this.editMode = new ReactiveVar(false);
+  Session.set("deletePostLostId", "");
 });
 
 Template.PostLost.helpers({
@@ -26,15 +27,18 @@ Template.PostLost.helpers({
 });
 
 Template.PostLost.events({
-
   'click .fa-trash' : function(){
     Meteor.call('deletePostLost', this._id);
   },
   'click .fa-pencil' : function(event, template){
     template.editMode.set(!template.editMode.get());
   },
+  'click .delete-post-lost-btn' : function() {
+    Session.set("deletePostLostId", this._id);
+  },
   'click .confirm-delete' : function() {
-    Meteor.call('deletePostLost', this._id);
+    var postId = Session.get("deletePostLostId")
+    Meteor.call('deletePostLost', postId);
     FlowRouter.reload();
   }
 });

@@ -5,6 +5,7 @@ Template.PostFound.onRendered(function() {
 
 Template.PostFound.onCreated(function(){
   this.editMode = new ReactiveVar(false);
+  Session.set("deletePostFoundId", "");
 });
 
 Template.PostFound.helpers({
@@ -26,15 +27,18 @@ Template.PostFound.helpers({
 });
 
 Template.PostFound.events({
-
   'click .fa-trash' : function(){
     Meteor.call('deletePostFound', this._id);
   },
   'click .fa-pencil' : function(event, template){
     template.editMode.set(!template.editMode.get());
   },
+  'click .delete-post-found-btn' : function() {
+    Session.set("deletePostFoundId", this._id);
+  },
   'click .confirm-delete' : function() {
-    Meteor.call('deletePostFound', this._id);
+    var postId = Session.get("deletePostFoundId")
+    Meteor.call('deletePostFound', postId);
     FlowRouter.reload();
   }
 });

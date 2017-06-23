@@ -38,10 +38,5 @@ Template.NewPostFound.events({
     });
     alert("Your post is successfully submitted!");
     $('.newPostFound').trigger('reset');
-
-    console.log(summary);
-    console.log(category);
-    console.log(colour);
-    console.log(detailedDesc);
   },
 });

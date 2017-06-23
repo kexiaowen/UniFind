@@ -33,15 +33,10 @@ Template.NewPostLost.events({
       category: category,
       colour: colour,
       desc: detailedDesc,
-      createdAt: new Date(), // current time
+      createdAt: formattedDate, // current time
       author: Meteor.userId(),
     });
     alert("Your post is successfully submitted!");
     $('.newPostLost').trigger('reset');
-
-    console.log(summary);
-    console.log(category);
-    console.log(colour);
-    console.log(detailedDesc);
   },
 });
