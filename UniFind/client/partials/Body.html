@@ -6,13 +6,16 @@
     <div class="section white">
       <div class="row container">
         <h2 class="header">Welcome to Unifind!</h2>
-        <p class="grey-text text-darken-3 lighten-3">Have lost or found an item? Look at the recent posts by clicking on the bottoms below!</p>
+        <h5 class="grey-text text-darken-3 lighten-3">Lost or found any item? Clicking on the buttons below to look at recent posts!</h5>
         <div class="row">
           <div class="center">
-            <a href="/search-found-items"><button class="btn btn-danger btn-xl">Lost</button> </a>
-
-            <a href="/search-lost-items"><button class="btn btn-primary btn-xl">Found</button> </a>
-            </div>
+            <span class="btn-padding-right">
+               <a href="/search-found-items" class="btn-large red white-text hoverWhite lost-btn">Lost</a>
+             </span>
+             <span class="btn-padding-left">
+               <a href="/search-lost-items" class="btn-large green white-text hoverWhite found-btn">Found</a>
+             </span>
+          </div>
         </div>
       </div>
     </div>
@@ -20,21 +23,31 @@
     <div class="parallax"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498080487178&di=5eac28ef674960ccae8b909aaa170f24&imgtype=0&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F116%2Fd%2F155.jpg"></div>
   </div>
   <div class="section white">
-    <div class="row container">
-      <h2 class="header">How it works?</h2>
-      <p class="grey-text text-darken-3 lighten-3">
-        1. Report what item you have lost and/or found
-      </p>
-      <p class="grey-text text-darken-3 lighten-3">
-        2. System suggests relevant posts based on filtered results
-      </p>
-      <p class="grey-text text-darken-3 lighten-3">
-        3. If matched, contact the person
-      </p>
-      <p class="grey-text text-darken-3 lighten-3">
-        4. Otherwise, publish a post
-      </p>
-
+      <div class="row container">
+        <div class="col s4">
+          <!-- Promo Content 1 goes here -->
+          <i class="material-icons center-icon large red-text text-lighten-2">search</i>
+          <h5 class="grey-text center-align text-darken-3">
+            View posts
+          </h5>
+          <p class="center-align">Click on the lost or found buttons above to see what others have found/lost</p>
+        </div>
+        <div class="col s4">
+          <!-- Promo Content 2 goes here -->
+          <i class="material-icons center-icon large red-text text-lighten-2">description</i>
+          <h5 class="grey-text center-align text-darken-3">
+            Add a post
+          </h5>
+          <p class="center-align">Report what item you have lost or found for others to contact you</p>
+        </div>
+        <div class="col s4">
+          <!-- Promo Content 3 goes here -->
+          <i class="material-icons center-icon large red-text text-lighten-2">call</i>
+          <h5 class="grey-text center-align text-darken-3">
+            Contact
+          </h5>
+          <p class="center-align">Contact the person to return or retrieve the item</p>
+        </div>
     </div>
   </div>
 

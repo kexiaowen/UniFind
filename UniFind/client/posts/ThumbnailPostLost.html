@@ -1,9 +1,13 @@
 <template name="ThumbnailPostLost">
   <div class="col s6 m4">
     <div class="card-panel hoverable post-card-panel">
-      <img src="http://lorempixel.com/100/190/nature/6">
+      {{#if showImage.isUploaded}}
+        <img src="{{showImage.url store="thumbs"}}" width=170 height=170>
+      {{else}}
+        <img src="imgs/UnifindThumb.png" width=170 height=160>
+      {{/if}}
       <h5 class="truncate grey-text text-darken-4">
-        <span class="grey-text text-darken-4">{{title}}</span>
+        <span class="grey-text text-darken-4">{{summary}}</span>
       </h5>
       <h6>
         <span class="teal-text">Category: </span>
@@ -19,7 +23,7 @@
       </h6>
       <h6>
         <span class="teal-text">Date: </span>
-        <span class="grey-text text-darken-2">{{date}}</span>
+        <span class="grey-text text-darken-2">{{createdAt}}</span>
       </h6>
       <p><a href="/post/{{_id}}" class="waves-effect waves-teal btn hoverWhite">Details</a></p>
     </div>

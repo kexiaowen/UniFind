@@ -1,0 +1,26 @@
+<template name ="SuggestedPosts">
+  <div class="container container1 paddingTop">
+    {{#if reportLost}}
+      <p>Someone may have found your item!</p>
+    {{else}}
+      <p>Someone may have lost the item!</p>
+    {{/if}}
+
+    <section class="posts">
+        {{#if Template.subscriptionsReady}}
+          <div class="row">
+
+            {{#each posts}}
+              {{> ThumbnailPostFound}}
+            {{else}}
+              <p>No results found? Please wait for further notifications!</p>
+            {{/each}}
+
+          </div>
+        {{else}}
+          <p>Loading</p>
+        {{/if}}
+    </section>
+
+  </div>
+</template>

@@ -18,12 +18,14 @@ Template.NewPost.events({
     Session.set('newPostLost', true);
     Session.set('newPostFound', false);
     Session.set('displayFoundBtn', false);
+    Session.set('displayLostBtn', false);
   },
 
   'click .new-post-found' : () =>{
     Session.set('newPostFound', true);
     Session.set('newPostLost', false);
     Session.set('displayLostBtn', false);
+    Session.set('displayFoundBtn', false);
   },
 
 });

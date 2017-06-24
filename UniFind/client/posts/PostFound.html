@@ -1,27 +1,16 @@
-<!-- <template name="PostFound">
-  <article class="post">
-    <h3>{{summary}}</h3>
-    {{#if editMode}}
-      {{#if isAuthor}}
-        {{> quickForm collection="PostsFound" id=updatePostId type="update" doc=this autosave=true}}
-      {{/if}}
-    {{else}}
-      <a href="/post/{{_id}}"><button class="btn btn-primary">View Details</button></a>
-    {{/if}}
-    <i class="fa fa-pencil"></i>
-    <i class="fa fa-trash"></i>
-  </article>
-</template> -->
-
 <template name="PostFound">
   <div class="col m6 s12">
     <div class="card-panel hoverable my-post-card-panel">
-      <img src="http://lorempixel.com/100/190/nature/6">
+      {{#if showImage.isUploaded}}
+        <img src="{{showImage.url store="thumbs"}}" width=170 height=170>
+      {{else}}
+        <img src="imgs/UnifindThumb.png" width=170 height=160>
+      {{/if}}
       <h6>
-        <a href="#deletePost">
+        <a href="#deletePost" class="delete-post-found-btn">
           <i class="material-icons right teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="delete">delete</i>
         </a>
-        <a href="#">
+        <a href="/edit-found/{{_id}}">
           <i class="material-icons right padding-left teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="edit">mode_edit</i>
         </a>
       </h6>
@@ -31,10 +20,11 @@
           <p>Do you want to delete this post? You cannot undo this once you click delete!</p>
         </div>
         <div class="modal-footer">
-          <a href="" class="modal-action modal-close waves-effect waves-green btn-flat confirm-delete">Delete</a>
+          <a href="" class="modal-action modal-close waves-effect waves-green btn red hoverWhite confirm-delete">Delete</a>
           <a href="" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
         </div>
       </div>
+
       <h5 class="truncate grey-text text-darken-4">
         <span class="grey-text text-darken-4">{{summary}}</span>
       </h5>
@@ -60,3 +50,18 @@
     </div>
   </div>
 </template>
+
+<!-- <template name="PostFound">
+  <article class="post">
+    <h3>{{summary}}</h3>
+    {{#if editMode}}
+      {{#if isAuthor}}
+        {{> quickForm collection="PostsFound" id=updatePostId type="update" doc=this autosave=true}}
+      {{/if}}
+    {{else}}
+      <a href="/post/{{_id}}"><button class="btn btn-primary">View Details</button></a>
+    {{/if}}
+    <i class="fa fa-pencil"></i>
+    <i class="fa fa-trash"></i>
+  </article>
+</template> -->

@@ -1,0 +1,88 @@
+<template name="EditPostLost">
+  <div class="container card-padding">
+    <div class="card-panel hoverable">
+      <div class="right-align">
+        <a href="/view-posts"><i class="fa fa-close"></i></a>
+      </div>
+      <h4 class="text-center grey-text text-darken-2">Edit Reported Lost Item</h4>
+
+      <div class="row">
+        <form class="col s12 editPostLost">
+          <div class="row">
+             <div class="input-field col s12">
+               <input value={{post.summary}} id="summary" type="text" class="validate">
+               <label class="active" for="summary">Summary</label>
+             </div>
+           </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="category">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="Handphone">Handphone</option>
+                <option value="Jacket">Jacket</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Thumbdrive">Thumbdrive</option>
+                <option value="Wallet">Wallet</option>
+                <option value="Others">Others</option>
+              </select>
+              <label>Category</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <h6 class="grey-text paddingLeft">Colour</h6>
+            <div class="input-field col s12">
+              <input class="with-gap" name="colour" type="radio" id="blue" value="blue"  />
+              <label for="blue">Blue</label>
+              <input class="with-gap" name="colour" type="radio" id="black" value="black"  />
+              <label for="black">Black</label>
+              <input class="with-gap" name="colour" type="radio" id="green" value="green"  />
+              <label for="green">Green</label>
+              <input class="with-gap" name="colour" type="radio" id="gold" value="gold"  />
+              <label for="gold">Gold</label>
+              <input class="with-gap" name="colour" type="radio" id="pink" value="pink"  />
+              <label for="pink">Pink</label>
+              <input class="with-gap" name="colour" type="radio" id="yellow" value="yellow"  />
+              <label for="yellow">Yellow</label>
+              <input class="with-gap" name="colour" type="radio" id="red" value="red"  />
+              <label for="red">Red</label>
+              <input class="with-gap" name="colour" type="radio" id="silver" value="silver"  />
+              <label for="silver">Silver</label>
+              <input class="with-gap" name="colour" type="radio" id="others" value="others"  />
+              <label for="others">Others</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea value={{post.desc}} id="detailedDesc" class="materialize-textarea"></textarea>
+              <label for="detailedDesc">Detailed Descriptions</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <h6 class="grey-text paddingLeft">Optional</h6>
+            <div class="file-field input-field">
+               <div class="btn">
+                 <span>Image</span>
+                 <input type="file" name="image" id="fileInput">
+               </div>
+               <div class="file-path-wrapper">
+                 <input class="file-path validate" type="text">
+               </div>
+             </div>
+          </div>
+
+          <div class="row">
+            <div class="center-align">
+              <button class="waves-effect waves-light btn" type="submit">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>

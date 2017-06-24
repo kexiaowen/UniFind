@@ -2,8 +2,11 @@ Template.LostItems.onCreated(function(){
   var self = this;
   self.autorun(function() {
     self.subscribe('allPostsLost', Session.get("searchValue"));
+    self.subscribe('images');
   });
-  Session.set("hasQuery", false);
+  Session.set("hasCatQuery", false);
+  Session.set("hasColQuery", false);
+
   Session.set("searchValue", "");
   /*Session.set("searchValue", "");
   Session.set("handphoneChecked", false);
@@ -16,15 +19,20 @@ Template.LostItems.onCreated(function(){
 Template.LostItems.helpers({
   posts: function() {
     if(Session.get("searchValue")){
-      var post = PostsFound.find({}, {sort: [["score"]]});
-    }
-    else{
-      if(Session.get("hasQuery")){
+      var post = PostsLost.find({}, {sort: [["score"]]});
+    } else {
+      if(Session.get("hasCatQuery") && Session.get("hasColQuery")){
         var queryParam = FlowRouter.getQueryParam("cat");
-        post = PostsFound.find({category: queryParam});
-      }
-      else{
-        post = PostsFound.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
+        var colourParam = FlowRouter.getQueryParam("colour");
+        post = PostsLost.find({category: queryParam, colour: colourParam});
+      } else if (Session.get("hasCatQuery")) {
+        var queryParam = FlowRouter.getQueryParam("cat");
+        post = PostsLost.find({category: queryParam});
+      } else if (Session.get("hasColQuery")) {
+        var colourParam = FlowRouter.getQueryParam("colour");
+        post = PostsLost.find({colour: colourParam});
+      } else {
+        post = PostsLost.find({}, { sort: { createdAt: -1 } }); // belong to the lost/found(?) category
       }
     }
     return post;
@@ -63,6 +71,12 @@ Template.LostItems.events({
     Session.set("searchValue", $("#searchValue").val());
   },
   "click #close": function(){
+    Session.set("searchValue", "");
+  },
+  "click #home": function(){
+    //view all posts
+    Session.set("hasCatQuery", false);
+    Session.set("hasColQuery", false);
     Session.set("searchValue", "");
   }
 });

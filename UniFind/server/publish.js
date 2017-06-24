@@ -1,3 +1,7 @@
+Meteor.publish('images', function(){
+  return Images.find();
+});
+
 Meteor.publish('ownPostsLost', function(){
   return PostsLost.find({author: this.userId});
 });

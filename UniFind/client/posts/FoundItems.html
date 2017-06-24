@@ -6,7 +6,10 @@
     </div>
 
     <div class="col s10">
-      <div class="container paddingTop">
+
+        <h6 class="container title teal-text">Reported found items are listed below:</h6>
+
+      <div class="container searchBox">
         <!-- Search bar-->
         <nav class="nav-white-colour">
           <div class="nav-wrapper">
@@ -27,6 +30,8 @@
 
                 {{#each posts}}
                   {{> ThumbnailPostFound}}
+                {{else}}
+                  <p>No posts yet</p>
                 {{/each}}
 
               </div>
