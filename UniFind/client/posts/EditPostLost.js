@@ -32,6 +32,7 @@ Template.EditPostLost.events({
     const category = target.category.value;
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
+    const contact = target.contact.value;
 
     var files = document.querySelector('#fileInput').files;
     if(files.length > 0){
@@ -46,6 +47,7 @@ Template.EditPostLost.events({
         category: category,
         colour: colour,
         desc: detailedDesc,
+        contact: contact,
         file: fileObj
       }
     });

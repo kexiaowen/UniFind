@@ -16,6 +16,7 @@ Template.NewPostLost.events({
     const category = target.category.value;
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
+    const contact = target.contact.value;
 
     if(files.length > 0){
       var fileObj = Images.insert(files[0]);
@@ -38,6 +39,7 @@ Template.NewPostLost.events({
       category: category,
       colour: colour,
       desc: detailedDesc,
+      contact: contact,
       createdAt: formattedDate, // current time
       year: y,
       author: Meteor.userId(),
