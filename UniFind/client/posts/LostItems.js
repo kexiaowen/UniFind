@@ -1,3 +1,7 @@
+Template.LostItems.onRendered(function(){
+  $('.tooltipped').tooltip({delay: 50});
+});
+
 Template.LostItems.onCreated(function(){
   var self = this;
   self.autorun(function() {
@@ -73,7 +77,7 @@ Template.LostItems.events({
   "click #close": function(){
     Session.set("searchValue", "");
   },
-  "click #home": function(){
+  "click #replay": function(){
     //view all posts
     Session.set("hasCatQuery", false);
     Session.set("hasColQuery", false);

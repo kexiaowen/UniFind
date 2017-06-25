@@ -1,3 +1,7 @@
+Template.FoundItems.onRendered(function(){
+  $('.tooltipped').tooltip({delay: 50});
+});
+
 Template.FoundItems.onCreated(function(){
   var self = this;
   self.autorun(function() {
@@ -64,7 +68,7 @@ Template.FoundItems.events({
   "click #close": function(){
     Session.set("searchValue", "");
   },
-  "click #home": function(){
+  "click #replay": function(){
     //view all posts
     Session.set("hasCatQuery", false);
     Session.set("hasColQuery", false);
