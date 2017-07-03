@@ -61,3 +61,14 @@ Meteor.publish('singlePostFound', function(id){
   check(id, String);
   return PostsFound.find({_id: id});
 });
+
+
+Meteor.publish('chats', function () {
+  return Chats.find({
+    $or: [{
+      user1Id: this.userId
+    }, {
+      user2Id: this.userId
+    }]
+  });
+});

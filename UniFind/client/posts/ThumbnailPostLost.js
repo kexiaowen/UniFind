@@ -3,7 +3,6 @@ Template.ThumbnailPostLost.helpers({
     var post = PostsLost.findOne({_id: this._id});
     var imgId = post.file._id;
     var image = Images.findOne({_id: imgId});
-    console.log(image);
     return image;
   }
   /*title: function() {

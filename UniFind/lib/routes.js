@@ -46,6 +46,22 @@ FlowRouter.route('/suggested-posts',{
   }
 });
 
+FlowRouter.route('/inbox/:id',{
+  name: 'chat',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'Chat'});
+  }
+});
+
+FlowRouter.route('/inbox',{
+  name: 'inbox',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'Inbox'});
+  }
+});
+
 FlowRouter.route('/post/:id',{
   name: 'post',
   action() {

@@ -5,6 +5,7 @@ Template.PostSingle.onCreated(function(){
     self.subscribe('singlePostFound', id);
     self.subscribe('singlePostLost', id);
     self.subscribe('images');
+    self.subscribe('chats');
   });
 });
 Template.PostSingle.helpers({
@@ -30,5 +31,46 @@ Template.PostSingle.helpers({
     }
 
     return PostsFound.findOne({_id: id});
+  },
+  isNotAuthor: function(){
+    var id = FlowRouter.getParam('id');
+    if(!PostsFound.findOne({_id: id})){
+      var post = PostsLost.findOne({_id: id});
+    }
+    else{
+      post = PostsFound.findOne({_id: id});
+    }
+    return post.author !== Meteor.userId();
+  },
+  chatId: function(){
+    var id = FlowRouter.getParam('id');
+
+    if(!PostsFound.findOne({_id: id})){
+      var post = PostsLost.findOne({_id: id});
+    }
+
+    else{
+      post = PostsFound.findOne({_id: id});
+    }
+    var posterId = post.author;
+    Meteor.call('getChat', posterId, id, function (err, res) {
+        if (err) { // error
+          console.log("getChat error...");
+        } else {
+          Session.set("chatId", res);
+        }
+      }
+    );
+    var chatId = Session.get('chatId');
+    return chatId;
+  }
+});
+
+Template.PostSingle.events({
+  
+  'click .view-chat': function(){
+    var id = FlowRouter.getParam('id');
+    FlowRouter.go('inbox');
+    FlowRouter.setQueryParams({item: id});
   }
 });

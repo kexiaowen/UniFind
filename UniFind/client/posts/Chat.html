@@ -1,0 +1,36 @@
+<template name="Chat">
+  <div class="row paddingTop">
+    <div class="col s2">
+
+    </div>
+
+    <div class="col s8">
+        {{#if currentUser}}
+        <div class="inboxContainer teal lighten-4">
+          <a href="/inbox" style='color: black; font-size: 35px'>Inbox</a>
+        </div>
+          <div class="chatContainer grey lighten-5">
+            {{#if Template.subscriptionsReady}}
+                {{#each messages}}
+                  {{#if sentByMe sentBy}}
+                    <h5 class="msg-mine">{{text}}</h5>
+
+                  {{else}}
+                    <h5 class="msg-other">{{text}}</h5>
+                  {{/if}}
+                  <span class="timeStamp center-align">{{timeStamp}}</span>
+                {{/each}}
+            {{/if}}
+
+          </div>
+          <div class="row">
+              <form class="sendMsg">
+                <input type="text" id="msg" placeholder="Type a message here..." class="validate" style="width: 80%; margin-bottom: 0px">
+                <button class="waves-effect waves-light btn submit" value="send">Send</button>
+              </form>
+          </div>
+        {{/if}}
+      </div>
+  </div>
+
+</template>

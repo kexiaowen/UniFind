@@ -1,0 +1,40 @@
+<template name="Inbox">
+  <div class="row paddingTop">
+    <div class="col s2">
+
+    </div>
+
+    <div class="col s8">
+      {{#if currentUser}}
+          <div class="inboxContainer teal lighten-4 ">
+            <a href="/inbox" style='color: black; font-size: 35px'>Inbox</a>
+          </div>
+          {{#if Template.subscriptionsReady}}
+            <div class="row">
+              {{#each chats}}
+                <a href="/inbox/{{_id}}" class="card horizontal hoverable" style="height: 150px">
+                  <div class="card-image">
+                    {{#if imageIsUploaded item}}
+                      <img src="{{imageurl item store="thumbs"}}" width=150 height=140 style="padding-left: 20px; padding-top:10px">
+                    {{else}}
+                      <img src="imgs/UnifindThumb.png" width=150 height=140 style="padding-left: 20px; padding-top:10px">
+                    {{/if}}
+                  </div>
+                  <div class="card-content">
+                    <h4 class="truncate black-text">{{summary item}}</h4>
+                    <h6 class="truncate grey-text">{{recentMsg messages}}</h6>
+                  </div>
+                  <div class="card-content valign-wrapper right-align">
+                    <h6 class="grey-text">{{username user1Id}}</h6>
+                  </div>
+                </a>
+              {{else}}
+                <p>No chat yet</p>
+              {{/each}}
+            </div>
+          {{/if}}
+      {{/if}}
+
+    </div>
+  </div>
+</template>
