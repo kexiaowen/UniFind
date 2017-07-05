@@ -1,0 +1,20 @@
+<template name="ViewPostsFound">
+  <section class="posts">
+      {{#if Template.subscriptionsReady}}
+      <div class="row">
+        <div class="col s12">
+          <h4 class="center-align grey-text text-darken-2 light">Reported Found Items</h4>
+            {{#each postsFound}}
+              {{> PostFound}}
+            {{else}}
+              <p>No posts yet</p>
+            {{/each}}
+        </div>
+      </div>
+      {{else}}
+        <div class="center-align btns-padding">
+          {{> Preloader}}
+        </div>
+      {{/if}}
+  </section>
+</template>

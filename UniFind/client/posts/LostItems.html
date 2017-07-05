@@ -32,7 +32,9 @@
                 {{/each}}
               </div>
             {{else}}
-              <p>Loading</p>
+              <div class="center-align btns-padding">
+                {{> Preloader}}
+              </div>
             {{/if}}
             <a id="replay" class="right btn-floating btn-large waves-effect waves-lighttooltipped" data-position="top" data-delay="50" data-tooltip="view all posts"><i class="material-icons">replay</i></a>
 

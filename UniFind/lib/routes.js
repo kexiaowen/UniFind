@@ -108,14 +108,6 @@ FlowRouter.route('/search-found-items',{
   }
 });
 
-FlowRouter.route('/view-posts',{
-  name: 'view-posts',
-  action() {
-    GAnalytics.pageview();
-    BlazeLayout.render('MainLayout', {main: 'ViewPosts'});
-  }
-});
-
 FlowRouter.route('/register',{
   name: 'register',
   action() {
@@ -145,6 +137,22 @@ FlowRouter.route('/change-password',{
   action() {
     GAnalytics.pageview();
     BlazeLayout.render('MainLayout', {main: 'ChangePassword'});
+  }
+});
+
+FlowRouter.route('/view-posts-lost',{
+  name: 'view-posts-lost',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'ViewPostsLost'});
+  }
+});
+
+FlowRouter.route('/view-posts-found',{
+  name: 'view-posts-found',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'ViewPostsFound'});
   }
 });
 
