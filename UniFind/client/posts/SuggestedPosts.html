@@ -1,26 +1,31 @@
 <template name ="SuggestedPosts">
   <div class="container container1 paddingTop">
-    {{#if reportLost}}
-      <p>Someone may have found your item!</p>
-    {{else}}
-      <p>Someone may have lost the item!</p>
-    {{/if}}
-
-    <section class="posts">
-        {{#if Template.subscriptionsReady}}
-          <div class="row">
-
-            {{#each posts}}
-              {{> ThumbnailPostFound}}
-            {{else}}
-              <p>No results found? Please wait for further notifications!</p>
-            {{/each}}
-
-          </div>
+    {{#if currentUser}}
+      {{#if reported}}
+        {{#if reportLost}}
+          <p>Someone may have found your item!</p>
         {{else}}
-          <p>Loading</p>
+          <p>Someone may have lost the item!</p>
         {{/if}}
-    </section>
 
+        <section class="posts">
+            {{#if Template.subscriptionsReady}}
+              <div class="row">
+
+                {{#each posts}}
+                  {{> ThumbnailPostFound}}
+                {{else}}
+                  <p>No results found? Please wait for further notifications!</p>
+                {{/each}}
+
+              </div>
+            {{else}}
+              <p>Loading</p>
+            {{/if}}
+        </section>
+      {{else}}
+        <h4>Sorry, we cannot find any item :(</h4>
+      {{/if}}
+    {{/if}}
   </div>
 </template>

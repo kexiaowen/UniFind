@@ -10,7 +10,6 @@ Template.NewPostFound.events({
     // Prevent default browser form submit
     event.preventDefault();
     var files = document.querySelector('#fileInput').files;
-    //var file = files[0];
 
     // Get value from form element
     const target = event.target;
@@ -19,6 +18,11 @@ Template.NewPostFound.events({
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
     const contact = target.contact.value;
+
+    if(!summary || !category){
+      alert('Please enter the required field!');
+      return false;
+    }
 
     if(files.length > 0){
       var fileObj = Images.insert(files[0]);
@@ -50,6 +54,5 @@ Template.NewPostFound.events({
     alert("Your post is successfully submitted!");
     $('.newPostFound').trigger('reset');
     FlowRouter.go('suggested-posts');
-
   },
 });

@@ -34,6 +34,11 @@ Template.EditPostFound.events({
     const detailedDesc = target.detailedDesc.value;
     const contact = target.contact.value;
 
+    if(!summary || !category){
+      alert('Please enter the required field!');
+      return false;
+    }
+
     var files = document.querySelector('#fileInput').files;
     if(files.length > 0){
       var fileObj = Images.insert(files[0]);

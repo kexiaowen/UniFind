@@ -163,3 +163,14 @@ FlowRouter.route('/test',{
     BlazeLayout.render('Home');
   }
 });
+
+FlowRouter.notFound = {
+  action(){
+    GAnalytics.pageview();
+    if(Meteor.userId()) {
+      BlazeLayout.render('MainLayout', {main: 'App_notFound'});
+    } else {
+      BlazeLayout.render('HomeLayout', {main: 'App_notFound'});
+    }
+  }
+};

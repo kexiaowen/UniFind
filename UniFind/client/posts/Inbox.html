@@ -1,15 +1,15 @@
 <template name="Inbox">
   <div class="row paddingTop">
-    <div class="col s2">
+    <div class="col s3">
 
     </div>
 
-    <div class="col s8">
+    <div class="col s6">
       {{#if currentUser}}
           <div class="inboxContainer teal lighten-4 ">
-            <a href="/inbox" style='color: black; font-size: 35px'>Inbox</a>
+            <a href="/inbox" style='color: black; font-size: 35px' class="paddingLeft">Inbox</a>
           </div>
-          {{#if Template.subscriptionsReady}}
+          <!--{{#if Template.subscriptionsReady}}
             <div class="row">
               {{#each chats}}
                 <a href="/inbox/{{_id}}" class="card horizontal hoverable" style="height: 150px">
@@ -32,7 +32,30 @@
                 <p>No chat yet</p>
               {{/each}}
             </div>
-          {{/if}}
+          {{/if}}-->
+          {{#if Template.subscriptionsReady}}
+            <ul class="collection">
+              {{#each chats}}
+                <li class="collection-item avatar"><a href="/inbox/{{_id}}">
+
+                  {{#if imageIsUploaded item}}
+                    <img src="{{imageurl item store="thumbs"}}" class="circle">
+                  {{else}}
+                    <img src="imgs/UnifindThumb.png" class="circle">
+                  {{/if}}
+
+                  <span class="black-text light title" style="font-size:25px">{{summary item}}</span>
+                  <p class="grey-text">{{recentMsg messages}} <br>
+                     With {{username user1Id}}
+                  </p>
+
+                </a>
+              </li>
+            {{else}}
+              <p>No chat yet</p>
+            {{/each}}
+          </ul>
+        {{/if}}
       {{/if}}
 
     </div>

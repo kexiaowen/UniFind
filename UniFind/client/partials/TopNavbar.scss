@@ -21,5 +21,9 @@ a:active {
 .hoverWhite {
   &:hover {
     color: white;
-  }; 
+  };
+}
+
+.badge{
+  border-radius: 25px;
 }

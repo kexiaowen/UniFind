@@ -21,7 +21,7 @@ Template.SuggestedPosts.helpers({
         return PostsLost.find({year: year}, { sort: { createdAt: -1 }});
       }
     }
-    else{
+    else if(Session.get("newPostLost")){
       newPost = PostsLost.findOne({author: Meteor.userId()}, {sort: {createdAt:-1}});
       cat = newPost.category;
       result = PostsFound.find({category: cat}, { sort: { createdAt: -1 } });
@@ -37,5 +37,13 @@ Template.SuggestedPosts.helpers({
   },
   reportLost: function(){
     return (Session.get("newPostLost") ? true:false);
+  },
+  reported: function(){
+    if(Session.get("newPostLost") || Session.get("newPostFound")){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 });
