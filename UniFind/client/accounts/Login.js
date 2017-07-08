@@ -7,9 +7,10 @@ Template.Login.events({
     const target = event.target;
     const email = target.email.value;
     const password = target.password.value;
-    
+    // trim whitespace from the email field
+    var trimEmail = email.replace(/^\s*|\s*$/g,"");
     // Login user
-		Meteor.loginWithPassword(email, password, (er)=>{
+		Meteor.loginWithPassword(trimEmail, password, (er)=>{
 			if(er) {
 				Materialize.toast(er.reason, 4000);
 			} else {

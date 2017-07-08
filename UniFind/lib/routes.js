@@ -11,12 +11,12 @@ if(Meteor.isClient){
     FlowRouter.reload();
   });
 }
-/*
+
 FlowRouter.triggers.enter([function(context, redirect){
   if(!Meteor.userId()){
     FlowRouter.go('home');
   }
-}]);*/
+}], {except: ["register", "login", "reset-password", "lost-items", "found-items", "post", "home"]});
 
 FlowRouter.route('/',{
   name: 'home',
@@ -124,6 +124,14 @@ FlowRouter.route('/login',{
   }
 });
 
+FlowRouter.route('/reset-password',{
+  name: 'reset-password',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('HomeLayout', {main: 'ResetPwd'});
+  }
+});
+
 FlowRouter.route('/settings',{
   name: 'settings',
   action() {
@@ -160,7 +168,7 @@ FlowRouter.route('/test',{
   name: 'test',
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render('Home');
+    BlazeLayout.render('ResetPwd');
   }
 });
 

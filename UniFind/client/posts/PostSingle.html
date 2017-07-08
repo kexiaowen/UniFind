@@ -29,7 +29,9 @@
           <span class="grey-text">{{post.contact}}</span>
         </h6>
         {{#if isNotAuthor}}
-          <a href="/inbox/{{chatId}}" type="button" class="right btn waves-effect waves-light red white-text hoverWhite chat-with-poster">Chat</a>
+          {{#if currentUser}}
+            <a href="/inbox/{{chatId}}" type="button" class="right btn waves-effect waves-light red white-text hoverWhite chat-with-poster">Chat</a>
+          {{/if}}
         {{else}}
           <button class="right btn waves-effect waves-light blue white-text view-chat">View Chat</button>
         {{/if}}

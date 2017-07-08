@@ -5,8 +5,8 @@
       <form onSubmit={this.onSubmit} class="col offset-s4 s4 loginForm">
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="text" class="validate" />
-            <label htmlFor="email">Email</label>
+            <input id="email" type="email" class="validate" />
+            <label htmlFor="email" data-error="Invalid email">Email</label>
           </div>
         </div>
         <div class="row">
@@ -16,13 +16,13 @@
           </div>
         </div>
         <div class="row">
-          <button class="waves-effect waves-light btn btn-block" type="submit">Submit</button>
+          <button class="waves-effect waves-light btn btn-block" type="submit">Login</button>
         </div>
       </form>
     </div>
     <div class="row">
-      <h6 class="text-center"><a href="#" class="forget-pwd"><span class="grey-text text-darken-2">Forget password?</span></a></h6>
-      <h6 class="text-center"><a href="/register"><span class="grey-text text-darken-2">Register</span></a></h6>
+      <h6 class="text-center"><span class="grey-text text-darken-2 light">Create account? </span><a href="/register"><span class="red-text text-darken-2">REGISTER</span></a></h6>
+      <h6 class="text-center"><span class="grey-text text-darken-2 light">Forgot your password? </span><a href="/reset-password" class="forget-pwd"><span class="red-text text-darken-2">RESET PASSWORD</span></a></h6>
     </div>
   </div>
 </template>

@@ -5,8 +5,8 @@
       <form onSubmit={this.onSubmit} class="col offset-s4 s4 registerForm">
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="text" class="validate" />
-            <label htmlFor="email">Email</label>
+            <input id="email" type="email" class="validate" />
+            <label htmlFor="email" data-error="Invalid email">Email</label>
           </div>
         </div>
         <div class="row">
@@ -21,10 +21,30 @@
             <label htmlFor="confirmPassword">Confirm Password</label>
           </div>
         </div>
+        <!--{{#if hasError}}
+          <div class="row">
+            <h6 class="text-center red-text">{{errorMessage}}</h6>
+          </div>
+        {{/if}}-->
         <div class="row">
-          <button class="waves-effect waves-light btn btn-block" type="submit">Submit</button>
+          <button class="waves-effect waves-light btn btn-block" type="submit">Register</button>
         </div>
       </form>
+    </div>
+    <!--<div class="at-oauth center-align">
+      <div class="row">
+        <button class="at-social-btn" id="at-facebook" name="facebook">
+          <i class="fa fa-facebook"></i> Login with Facebook
+        </button>
+      </div>
+      <div class="row">
+        <button class="at-social-btn" id="at-twitter" name="twitter">
+          <i class="fa fa-twitter"></i> Login with Twitter
+        </button>
+      </div>
+    </div>-->
+    <div class="row">
+      <h6 class="text-center"><span class="grey-text text-darken-2 light">Have an account already? </span><a href="/login"><span class="red-text text-darken-2">LOGIN</span></a></h6>
     </div>
   </div>
 </template>
