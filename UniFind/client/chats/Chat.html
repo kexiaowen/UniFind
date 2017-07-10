@@ -9,16 +9,20 @@
         <div class="inboxContainer teal lighten-4">
           <a href="/inbox" style='color: black; font-size: 35px' class="paddingLeft">Inbox</a>
         </div>
-          <div class="chatContainer grey lighten-5">
+          <div id="chat-msg" class="chatContainer grey lighten-5">
             {{#if Template.subscriptionsReady}}
                 {{#each messages}}
                   {{#if sentByMe sentBy}}
-                    <h5 class="msg-mine">{{text}}</h5>
+                    <h5 class="msgbubble mine">{{text}} <br>
+                      <span class="timeStamp center-align">{{timeStamp}}</span>
+                    </h5>
 
                   {{else}}
-                    <h5 class="msg-other">{{text}}</h5>
+                    <h5 class="msgbubble other">{{text}} <br>
+                      <span class="timeStamp center-align">{{timeStamp}}</span>
+                    </h5>
                   {{/if}}
-                  <span class="timeStamp center-align">{{timeStamp}}</span>
+
                 {{/each}}
             {{/if}}
 

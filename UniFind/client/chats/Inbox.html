@@ -36,7 +36,7 @@
           {{#if Template.subscriptionsReady}}
             <ul class="collection">
               {{#each chats}}
-                <li class="collection-item avatar"><a href="/inbox/{{_id}}">
+                <li class="collection-item avatar"><a href="/inbox/{{_id}}" class="chat">
 
                   {{#if imageIsUploaded item}}
                     <img src="{{imageurl item store="thumbs"}}" class="circle">
@@ -44,8 +44,8 @@
                     <img src="imgs/UnifindThumb.png" class="circle">
                   {{/if}}
 
-                  <span class="black-text light title" style="font-size:25px">{{summary item}}</span>
-                  <p class="grey-text">{{recentMsg messages}} <br>
+                  <span class="black-text light title" style="font-size:30px">{{summary item}}</span>
+                  <p class="grey-text" style="font-size:23px">{{recentMsg messages}} <br>
                      With {{username user1Id}}
                   </p>
 

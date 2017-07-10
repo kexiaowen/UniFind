@@ -4,6 +4,14 @@ Template.NewPostFound.onRendered(function() {
   $('select').material_select();
 });
 
+Template.NewPostFound.onCreated(function () {
+  var self = this;
+  self.autorun(function() {
+    self.subscribe('allPostsLost');
+    self.subscribe('images');
+  });
+});
+
 Template.NewPostFound.events({
 
   'submit .newPostFound'(event) {
@@ -40,7 +48,7 @@ Template.NewPostFound.events({
                         + (min<=9 ? '0' + min : min) + ':' + (s<=9 ? '0' + s : s);
 
 
-    PostsFound.insert({
+    var newPost = PostsFound.insert({
       summary: summary,
       category: category,
       colour: colour,
@@ -51,6 +59,16 @@ Template.NewPostFound.events({
       author: Meteor.userId(),
       file: fileObj,
     });
+
+    var potentialPosts = PostsLost.find({category: category});
+    if(potentialPosts){
+      potentialPosts.forEach(function(doc){
+        var target = doc.author;
+        Meteor.call('createGeneralNotification', newPost, target);
+
+      });
+    }
+
     alert("Your post is successfully submitted!");
     $('.newPostFound').trigger('reset');
     FlowRouter.go('suggested-posts');

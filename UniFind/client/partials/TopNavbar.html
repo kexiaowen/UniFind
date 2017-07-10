@@ -7,8 +7,18 @@
         <li><a href="/" class="hoverWhite white-text">Home</a></li>
         <li><a href="#!" class="dropdown-button hoverWhite white-text" data-activates="dropdown1">My Account<i class="material-icons right white-text">arrow_drop_down</i></a></li>
         <li><a href="/#!" class="dropdown-button hoverWhite white-text" data-activates="dropdown3">View My Posts<i class="material-icons right white-text">arrow_drop_down</i></a></li>
-        <li><a href="/inbox" class="hoverWhite white-text">Inbox<span class="badge red lighten-2 white-text">1</span></a></li>
-        <li><a href="/notifications" class="hoverWhite white-text">Notifications</a></li>
+        <li><a href="/inbox" class="hoverWhite white-text">
+          Inbox
+          {{#if inboxNotificationCount}}
+            <span class="badge red lighten-2 white-text">{{inboxNotificationCount}}</span>
+          {{/if}}
+        </a></li>
+        <li><a href="/notifications" class="notification hoverWhite white-text">
+          Notifications
+          {{#if generalNotificationCount}}
+            <span class="badge red lighten-2 white-text">{{generalNotificationCount}}</span>
+          {{/if}}
+        </a></li>
         <li><a href="/my-posts" class="waves-effect waves-light btn pulse red lighten-1 hoverWhite white-text">Add Post</a></li>
       </ul>
     </div>
@@ -18,8 +28,18 @@
     <li><a href="/">Home</a></li>
     <li><a class="dropdown-button" href="#!" data-activates="dropdown2">My Account<i class="material-icons right">arrow_drop_down</i></a></li>
     <li><a href="#!" class="dropdown-button" data-activates="dropdown4">View My Posts<i class="material-icons right">arrow_drop_down</i></a></li>
-    <li><a href="/inbox"><span class="badge">1</span>Inbox</a></li>
-    <li><a href="/notifications">Notifications</a></li>
+    <li><a href="/inbox">
+      Inbox
+      {{#if inboxNotificationCount}}
+        <span class="badge red lighten-2 white-text">{{inboxNotificationCount}}</span>
+      {{/if}}
+    </a></li>
+    <li><a href="/notifications" class='notification'>
+      Notifications
+      {{#if generalNotificationCount}}
+        <span class="badge red lighten-2 white-text">{{generalNotificationCount}}</span>
+      {{/if}}
+    </a></li>
     <li><a href="/my-posts" class="waves-effect waves-light btn pulse red lighten-1">Add Post</a></li>
   </ul>
 

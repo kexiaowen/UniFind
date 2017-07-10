@@ -3,7 +3,6 @@
 //SimpleSchema.extendOptions(['autoform']);
 import { Meteor } from 'meteor/meteor';
 
-Chats = new Mongo.Collection('chats');
 PostsFound = new Mongo.Collection('postsFound');
 PostsLost = new Mongo.Collection('postsLost');
 Images = new FS.Collection("images", {
@@ -27,15 +26,6 @@ Images = new FS.Collection("images", {
     new FS.Store.FileSystem("images", {path: "~/uploads"})
   ]
 });
-
-Chats.allow({
-  insert: function(userId,doc){
-    return !!userId;
-  },
-  update: function(userId, doc){
-    return !!userId;
-  }
-})
 
 PostsFound.allow({
   insert: function(userId,doc){
@@ -71,45 +61,8 @@ Images.allow({
  }
 });
 
-Meteor.methods({
 
-  deletePostLost:function(id) {
-    PostsLost.remove(id);
-  },
-  deletePostFound:function(id) {
-    PostsFound.remove(id);
-  },
-  getChat:function(otherUserId, itemId){
-    // find a chat that has the itemID and two users that match current user id and the requested user id
-    var chatId;
-    var filter = {
-      $or: [
-        {
-          user1Id: this.userId,
-          user2Id: otherUserId,
-          item: itemId
-        },
-        {
-          user2Id: this.userId,
-          user1Id: otherUserId,
-          item: itemId
-        }
-      ]
-    };
 
-    var chat = Chats.findOne(filter);
-    if (!chat) { // no chat matching the filter - need to insert a new one
-      chatId = Chats.insert({
-        item: itemId,
-        user1Id: this.userId,
-        user2Id: otherUserId
-      });
-    } else { // there is a chat going already - use that.
-      chatId = chat._id;
-    }
-    return chatId;
-  }
-});
 
 /*PostSchema = new SimpleSchema ({
 

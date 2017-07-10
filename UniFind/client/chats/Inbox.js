@@ -5,6 +5,7 @@ Template.Inbox.onCreated(function(){
     self.subscribe('images');
     self.subscribe('allPostsLost');
     self.subscribe('allPostsFound');
+    self.subscribe('inboxNotifications');
   });
 });
 
@@ -55,5 +56,11 @@ Template.Inbox.helpers({
   },
   username: function(user1Id){
     return "tempUserName";
+  }
+});
+
+Template.Inbox.events({
+  'click .chat': function(){
+    Meteor.call('updateUnread', this._id);
   }
 });

@@ -17,8 +17,34 @@ Template.TopNavbar.onRendered(function() {
       draggable: true
     });
 });
+Template.TopNavbar.onCreated(function(){
+  var self = this;
+  self.autorun(function() {
+    self.subscribe('inboxNotifications', Meteor.userId());
+    self.subscribe('generalNotifications', Meteor.userId());
+  });
+});
+
+Template.TopNavbar.helpers({
+  inboxNotificationCount: function(){
+    return InboxNotifications.find({read: false}).count();
+  },
+  generalNotificationCount: function(){
+    return GeneralNotifications.find({read: false}).count();
+  }
+});
 
 Template.TopNavbar.events({
+  'click .notification': function(){
+    GeneralNotifications.find({read: false}).forEach(function(doc){
+      GeneralNotifications.update(doc._id, {
+        $set: {
+          read: true
+        }
+      });
+    });
+  },
+
   'click .logout' (event) {
     Meteor.logout((er)=>{
       if(er) {

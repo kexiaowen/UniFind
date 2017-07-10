@@ -29,9 +29,11 @@
               <div class="row">
 
                 {{#each posts}}
-                  {{> ThumbnailPostFound}}
+                  <div class="col s12 m4">
+                    {{> ThumbnailPostFound}}
+                  </div>
                 {{else}}
-                  <p>No posts yet</p>
+                  <h6 class="light">No posts yet</h6>
                 {{/each}}
 
               </div>

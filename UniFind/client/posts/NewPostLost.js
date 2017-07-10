@@ -4,6 +4,14 @@ Template.NewPostLost.onRendered(function() {
   $('select').material_select();
 });
 
+Template.NewPostLost.onCreated(function () {
+  var self = this;
+  self.autorun(function() {
+    self.subscribe('allPostsFound');
+    self.subscribe('images');
+  });
+});
+
 Template.NewPostLost.events({
   'submit .newPostLost'(event) {
     // Prevent default browser form submit
@@ -22,7 +30,7 @@ Template.NewPostLost.events({
       alert('Please enter the required field!');
       return false;
     }
-    
+
     if(files.length > 0){
       var fileObj = Images.insert(files[0]);
     }
@@ -39,7 +47,7 @@ Template.NewPostLost.events({
                         + (min<=9 ? '0' + min : min) + ':' + (s<=9 ? '0' + s : s);
 
 
-    PostsLost.insert({
+    var newPost = PostsLost.insert({
       summary: summary,
       category: category,
       colour: colour,
@@ -50,6 +58,15 @@ Template.NewPostLost.events({
       author: Meteor.userId(),
       file: fileObj,
     });
+
+    var potentialPosts = PostsFound.find({category: category});
+    if(potentialPosts){
+      potentialPosts.forEach(function(doc){
+        var target = doc.author;
+        Meteor.call('createGeneralNotification', newPost, target);
+      });
+    }
+
     alert("Your post is successfully submitted!");
     $('.newPostLost').trigger('reset');
     FlowRouter.go('suggested-posts');

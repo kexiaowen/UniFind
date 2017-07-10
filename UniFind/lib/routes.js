@@ -62,6 +62,14 @@ FlowRouter.route('/inbox',{
   }
 });
 
+FlowRouter.route('/notifications',{
+  name: 'notifications',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'Notification'});
+  }
+});
+
 FlowRouter.route('/post/:id',{
   name: 'post',
   action() {

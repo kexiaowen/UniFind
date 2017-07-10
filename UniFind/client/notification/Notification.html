@@ -1,0 +1,29 @@
+<template name="Notification">
+
+  <section class="posts">
+      {{#if Template.subscriptionsReady}}
+      <div class="row">
+        <div class="col s12">
+          {{#if postsCount}}
+            <div class="row paddingLeft">
+              <h5 class="light">Here are some new matched results for you!</h5>
+            </div>
+            {{#each posts}}
+              <div class="col m3">
+                {{> ThumbnailPostFound}}
+              </div>
+            {{/each}}
+          {{else}}
+            <div class="row paddingLeft">
+              <h5 class="light">There isn't any new matched post yet, please wait for further notifications!</h5>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+      {{else}}
+        <div class="center-align btns-padding">
+          {{> Preloader}}
+        </div>
+      {{/if}}
+  </section>
+</template>

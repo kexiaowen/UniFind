@@ -72,3 +72,16 @@ Meteor.publish('chats', function () {
     }]
   });
 });
+
+Meteor.publish('singleChat',function(id){
+  check(id, String);
+  return Chats.find({_id: id});
+});
+
+Meteor.publish('inboxNotifications', function() {
+  return InboxNotifications.find({userId: this.userId});
+});
+
+Meteor.publish('generalNotifications', function() {
+  return GeneralNotifications.find({userId: this.userId});
+});

@@ -3,9 +3,9 @@
     {{#if currentUser}}
       {{#if reported}}
         {{#if reportLost}}
-          <p>Someone may have found your item!</p>
+          <h5 class="light">Someone may have found your item!</h5>
         {{else}}
-          <p>Someone may have lost the item!</p>
+          <h5 class="light">Someone may have lost the item!</h5>
         {{/if}}
 
         <section class="posts">
@@ -13,9 +13,12 @@
               <div class="row">
 
                 {{#each posts}}
-                  {{> ThumbnailPostFound}}
+                  <div class="col s12 m4">
+                    {{> ThumbnailPostFound}}
+                  </div>
+
                 {{else}}
-                  <p>No results found? Please wait for further notifications!</p>
+                  <h5 class="light">No results found? Please wait for further notifications!</h5>
                 {{/each}}
 
               </div>

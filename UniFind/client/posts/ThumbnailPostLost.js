@@ -1,7 +1,7 @@
 Template.ThumbnailPostLost.helpers({
   showImage: function(){
-    var post = PostsLost.findOne({_id: this._id});
-    var imgId = post.file._id;
+    //var post = PostsLost.findOne({_id: this._id});
+    var imgId = this.file._id;
     var image = Images.findOne({_id: imgId});
     return image;
   }
