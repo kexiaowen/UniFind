@@ -26,7 +26,7 @@
                 <option value="Wallet">Wallet</option>
                 <option value="Others">Others</option>
               </select>
-              <label>Category <span>(required)</span></label>
+              <label style="font-size: 16px">Category <span>(required)</span></label>
             </div>
           </div>
 
@@ -80,6 +80,24 @@
                </div>
              </div>
           </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="timeLimit">
+                <option value="" disabled selected>Choose your option</option>
+                <option value= 604800000>One week</option>
+                <option value= 2678400000>One month</option>
+                <option value= 31536000000>One year</option>
+                <option value="no limit">No limit</option>
+              </select>
+              <label style="font-size: 16px">Please choose a time span for receiving notifications:</label>
+            </div>
+          </div>
+
+          <p>
+            <input type="checkbox" id="email-noti" />
+            <label for="email-noti">Allow email notification</label>
+          </p>
 
           <div class="row">
             <div class="center-align">

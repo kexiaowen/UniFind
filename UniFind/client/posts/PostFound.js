@@ -30,6 +30,9 @@ Template.PostFound.helpers({
     if (!post) { return false; };
 
     return post.author === Meteor.userId();
+  },
+  changeStatus: function(){
+    return this.status === "waiting"? false : true;
   }
 });
 
@@ -40,6 +43,23 @@ Template.PostFound.events({
   'click .fa-pencil' : function(event, template){
     template.editMode.set(!template.editMode.get());
   },
+
+  'click #updateStatus': function(){
+    PostsFound.update(this._id, {
+      $set: {
+        status: "Claimed"
+      }
+    });
+  },
+
+  'click #redoStatus': function(){
+    PostsFound.update(this._id, {
+      $set: {
+        status: "waiting"
+      }
+    });
+  },
+
   'click .delete-post-found-btn' : function() {
     Session.set("deletePostFoundId", this._id);
   },

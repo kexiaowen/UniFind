@@ -61,10 +61,11 @@ Template.NewPostFound.events({
       year: y,
       author: Meteor.userId(),
       file: fileObj,
-      timeLimit: timeLimit
+      timeLimit: timeLimit,
+      status: "waiting"
     });
 
-    var potentialPosts = PostsLost.find({category: category});
+    var potentialPosts = PostsLost.find({category: category, status: "waiting"});
     if(potentialPosts){
       potentialPosts.forEach(function(doc){
         var notificationTime = doc.timeLimit;
@@ -73,7 +74,7 @@ Template.NewPostFound.events({
           Meteor.call('createGeneralNotification', newPost, target);
         }
         else{
-    
+
         }
       });
     }

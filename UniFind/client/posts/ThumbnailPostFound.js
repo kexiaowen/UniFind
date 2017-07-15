@@ -11,6 +11,10 @@ Template.ThumbnailPostFound.helpers({
     var imgId = this.file._id;
     var image = Images.findOne({_id: imgId});
     return image;
+  },
+
+  changeStatus: function(){
+    return this.status === "waiting"? false : true;
   }
   /*title: function() {
     var post = PostsFound.findOne({_id: this._id});

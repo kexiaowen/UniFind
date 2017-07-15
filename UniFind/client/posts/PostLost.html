@@ -7,6 +7,7 @@
         <img src="imgs/UnifindThumb.png" width=170 height=160>
       {{/if}}
       <h6>
+        <a href="#"><i id="updateStatus" class="material-icons right teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="update status to 'Found'">flag</i></a>
         <a href="#deletePost" class="delete-post-lost-btn">
           <i class="material-icons right teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="delete">delete</i>
         </a>
@@ -27,6 +28,13 @@
       <h5 class="truncate grey-text text-darken-4">
         <span class="grey-text text-darken-4">{{summary}}</span>
       </h5>
+      {{#if changeStatus}}
+        <div class="chip">
+          {{status}}
+          <a href="#"><i id="redoStatus" class="material-icons grey-text text-darken-3" style="font-size:16px">close</i></a>
+        </div>
+
+      {{/if}}
       <h6>
         <span class="teal-text">Category: </span>
         <span class="grey-text text-darken-2">{{category}}</span>

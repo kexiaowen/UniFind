@@ -29,6 +29,9 @@ Template.PostLost.helpers({
     if (!post) { return false; };
 
     return post.author === Meteor.userId();
+  },
+  changeStatus: function(){
+    return this.status === "waiting"? false : true;
   }
 });
 
@@ -39,6 +42,23 @@ Template.PostLost.events({
   'click .fa-pencil' : function(event, template){
     template.editMode.set(!template.editMode.get());
   },
+
+  'click #updateStatus': function(){
+    PostsLost.update(this._id, {
+      $set: {
+        status: "Found"
+      }
+    });
+  },
+
+  'click #redoStatus': function(){
+    PostsLost.update(this._id, {
+      $set: {
+        status: "waiting"
+      }
+    });
+  },
+
   'click .delete-post-lost-btn' : function() {
     Session.set("deletePostLostId", this._id);
   },

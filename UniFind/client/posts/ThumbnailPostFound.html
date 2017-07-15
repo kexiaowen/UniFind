@@ -10,9 +10,11 @@
       <h5 class="truncate grey-text text-darken-4">
         <span class="grey-text text-darken-4">{{summary}}</span>
       </h5>
-      <!--<div class="chip">
-        claimed
-      </div>-->
+      {{#if changeStatus}}
+        <div class="chip">
+          {{status}}
+        </div>
+      {{/if}}
       <h6>
         <span class="teal-text">Category: </span>
         <span class="grey-text text-darken-2">{{category}}</span>

@@ -33,6 +33,7 @@ Template.EditPostFound.events({
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
     const contact = target.contact.value;
+    const timeLimit = target.timeLimit.value;
 
     if(!summary || !category){
       alert('Please enter the required field!');
@@ -53,7 +54,8 @@ Template.EditPostFound.events({
         colour: colour,
         desc: detailedDesc,
         contact: contact,
-        file: fileObj
+        file: fileObj,
+        timeLimit: timeLimit
       }
     });
     alert("Your have successfully updated your post!");
