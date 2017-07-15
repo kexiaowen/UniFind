@@ -1,0 +1,71 @@
+<template name="Profile">
+  <div class="container">
+    <h4 class="grey-text text-darken-2">Settings</h4>
+    <h5 class="profile-text">
+      <span class="grey-text light">Login email:</span>
+      <span class="teal-text light">{{email}}</span>
+      {{#if editEmail}}
+      {{else}}
+        <a href="#" class="teal-text edit-icon editEmail"><i class="fa fa-pencil"></i></a>
+      {{/if}}
+    </h5>
+    {{#if editEmail}}
+      <div class="card-panel hoverable">
+        <div class="right-align">
+          <a class="close-email-form"><i class="fa fa-close"></i></a>
+        </div>
+        <div class="row">
+          <form class="col s12 editEmailForm">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="newEmail" type="email" class="validate" required>
+                <label for="newEmail">New Email Address <span>(required)</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="center-align">
+                <button class="waves-effect waves-light btn" type="submit">Edit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    {{/if}}
+    <h5 class="profile-text">
+      <span class="grey-text light">Username:</span>
+      <span class="teal-text light">{{username}}</span>
+      {{#if editUsername}}
+      {{else}}
+        <a href="#" class="teal-text edit-icon editUsername"><i class="fa fa-pencil"></i></a>
+      {{/if}}
+    </h5>
+    {{#if editUsername}}
+      <div class="card-panel hoverable">
+        <div class="right-align">
+          <a class="close-username-form"><i class="fa fa-close"></i></a>
+        </div>
+        <div class="row">
+          <form class="col s12 editUsernameForm">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="newUsername" type="text" class="validate" required>
+                <label for="newUsername">New Username <span>(required)</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="center-align">
+                <button class="waves-effect waves-light btn" type="submit">Edit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    {{/if}}
+    <p class="profile-text">
+      <a href="/change-password">Change password</a>
+    </p>
+    <!--<h6><span class="grey-text light">Not you? </span><a class="red-text light logout" href="">Login as a different user</a></h6>-->
+  </div>
+</template>

@@ -16,7 +16,7 @@ FlowRouter.triggers.enter([function(context, redirect){
   if(!Meteor.userId()){
     FlowRouter.go('home');
   }
-}], {except: ["register", "login", "reset-password", "lost-items", "found-items", "post", "home"]});
+}], {except: ["register", "login", "reset-password", "lost-items", "found-items", "post", "home", "about", "team", "contact"]});
 
 FlowRouter.route('/',{
   name: 'home',
@@ -140,11 +140,19 @@ FlowRouter.route('/reset-password',{
   }
 });
 
+/*FlowRouter.route('/profile',{
+  name: 'profile',
+  action() {
+    GAnalytics.pageview();
+    BlazeLayout.render('MainLayout', {main: 'Profile'});
+  }
+});*/
+
 FlowRouter.route('/settings',{
   name: 'settings',
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render('MainLayout', {main: 'Settings'});
+    BlazeLayout.render('MainLayout', {main: 'Profile'});
   }
 });
 
@@ -172,11 +180,45 @@ FlowRouter.route('/view-posts-found',{
   }
 });
 
+// =================Footer========================================
+FlowRouter.route('/about',{
+  name: 'about',
+  action() {
+    if(Meteor.userId()) {
+      BlazeLayout.render('MainLayout', {main: 'About'});
+    } else {
+      BlazeLayout.render('HomeLayout', {main: 'About'});
+    }
+  }
+});
+
+FlowRouter.route('/team',{
+  name: 'team',
+  action() {
+    if(Meteor.userId()) {
+      BlazeLayout.render('MainLayout', {main: 'Team'});
+    } else {
+      BlazeLayout.render('HomeLayout', {main: 'Team'});
+    }
+  }
+});
+
+FlowRouter.route('/contact',{
+  name: 'contact',
+  action() {
+    if(Meteor.userId()) {
+      BlazeLayout.render('MainLayout', {main: 'Contact'});
+    } else {
+      BlazeLayout.render('HomeLayout', {main: 'Contact'});
+    }
+  }
+});
+
 FlowRouter.route('/test',{
   name: 'test',
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render('ResetPwd');
+    BlazeLayout.render('About');
   }
 });
 

@@ -15,6 +15,14 @@ Template.ThumbnailPostFound.helpers({
 
   changeStatus: function(){
     return this.status === "waiting"? false : true;
+  },
+  username: function() {
+    var post = PostsFound.findOne({_id: this._id});
+    var userid = post.author;
+    console.log(userid);
+    const user = Meteor.users.findOne(userid);
+    console.log(user);
+    return user.username;
   }
   /*title: function() {
     var post = PostsFound.findOne({_id: this._id});

@@ -2,9 +2,9 @@
   <div class="col m3 s12">
     <div class="card-panel hoverable my-post-card-panel">
       {{#if showImage.isUploaded}}
-        <img src="{{showImage.url store="thumbs"}}" width=170 height=170>
+        <img src="{{showImage.url store="thumbs"}}" width=170 height=170 class="responsive-img">
       {{else}}
-        <img src="imgs/UnifindThumb.png" width=170 height=160>
+        <img src="imgs/UnifindThumb.png" width=170 height=160 class="responsive-img">
       {{/if}}
       <h6>
         <a href="#"><i id="updateStatus" class="material-icons right teal-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="update status to 'Found'">flag</i></a>

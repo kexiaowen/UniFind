@@ -9,7 +9,7 @@ Template.ChangePassword.events({
     const newPassword = target.newPassword.value;
     const confirmNewPassword = target.confirmNewPassword.value;
 
-    var isComplexPwd = /(?=.*\d)(?=.*[a-z]).{6,}/;
+    var isComplexPwd = /(?=.*\d)(?=.*[a-zA-Z]).{6,}/;
 
     var isValidPassword = function(pwd) {
       if (pwd.length < 6) {
