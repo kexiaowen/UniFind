@@ -1,10 +1,10 @@
 <template name="Inbox">
   <div class="row paddingTop">
-    <div class="col s3">
+    <div class="col m3">
 
     </div>
 
-    <div class="col s6">
+    <div class="col s12 m6">
       {{#if currentUser}}
           <div class="inboxContainer teal lighten-4 ">
             <a href="/inbox" style='color: black; font-size: 35px' class="paddingLeft">Inbox</a>
@@ -52,7 +52,7 @@
                 </a>
               </li>
             {{else}}
-              <p>No chat yet</p>
+              <h5 class="light">No chat yet</h5>
             {{/each}}
           </ul>
         {{/if}}

@@ -1,10 +1,10 @@
 <template name="Chat">
   <div class="row paddingTop">
-    <div class="col s3">
+    <div class="col m3">
 
     </div>
 
-    <div class="col s6">
+    <div class="col s12 m6">
         {{#if currentUser}}
         <div class="inboxContainer teal lighten-4">
           <a href="/inbox" style='color: black; font-size: 35px' class="paddingLeft">Inbox</a>
@@ -29,7 +29,7 @@
           </div>
           <div class="row">
               <form class="sendMsg">
-                <input type="text" id="msg" placeholder="Type a message here..." class="validate" style="width: 80%; margin-bottom: 0px">
+                <input type="text" id="msg" placeholder="Type a message here..." class="validate" style="width: 78%; margin-bottom: 0px">
                 <button class="waves-effect waves-light btn submit" value="send">Send</button>
               </form>
           </div>

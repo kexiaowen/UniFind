@@ -1,11 +1,11 @@
 <template name="FoundItems">
   <div class="row">
     <!--Navigation panel-->
-    <div class="col s2">
+    <div class="col s4 m2">
       {{> SideNav}}
     </div>
 
-    <div class="col s10">
+    <div class="col s8 m10">
 
         <h6 class="container title teal-text">Reported found items are listed below:</h6>
 
@@ -33,7 +33,9 @@
                     {{> ThumbnailPostFound}}
                   </div>
                 {{else}}
-                  <h6 class="light">No posts yet</h6>
+                  <div class="col s12">
+                    <h5 class="light">No posts yet</h5>
+                  </div>
                 {{/each}}
 
               </div>

@@ -1,7 +1,7 @@
 <template name="PostSingle">
   <div class="row">
-    <div class="col s4">
-      <div class="container-padding">
+    <div class="col m4 s12">
+      <div class="container container-padding">
         {{#if showImage.isUploaded}}
           <img src="{{showImage.url store="images"}}" width=400 height=400>
         {{else}}
@@ -9,8 +9,8 @@
         {{/if}}
       </div>
     </div>
-    <div class="col s6">
-      <div class="container">
+    <div class="col m6 s12">
+      <div class="container container-padding">
         <h2 class="grey-text text-darken-3">{{post.summary}}</h2>
         <h6>
           <span class="teal-text">Category:</span>

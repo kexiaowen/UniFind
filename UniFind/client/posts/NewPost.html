@@ -38,13 +38,27 @@
       {{> NewPostFound}}
     {{/if}}
   {{/if}}
-  <div class="btns-padding center-align">
-    {{#if $.Session.get 'displayLostBtn'}}
-        <button class="btn new-post-lost">Report Lost Items</button>
-    {{/if}}
-    {{#if $.Session.get 'displayFoundBtn'}}
-        <button class="btn new-post-found">Report Found Items</button>
-    {{/if}}
-  </div>
-  
+
+    <div class="row">
+      <div class="col m3">
+
+      </div>
+      {{#if $.Session.get 'displayLostBtn'}}
+        <div class="col s12 m3">
+          <div class="btns-padding center">
+            <button class="btn-large new-post-lost">Report Lost Items</button>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if $.Session.get 'displayFoundBtn'}}
+        <div class="col s12 m3">
+          <div class="btns-padding center">
+            <button class="btn-large new-post-found">Report Found Items</button>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+
+
 </template>

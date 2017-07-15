@@ -25,6 +25,7 @@ Template.NewPostLost.events({
     const colour = target.colour.value;
     const detailedDesc = target.detailedDesc.value;
     const contact = target.contact.value;
+    const timeLimit = target.timeLimit.value;
 
     if(!summary || !category){
       alert('Please enter the required field!');
@@ -53,17 +54,25 @@ Template.NewPostLost.events({
       colour: colour,
       desc: detailedDesc,
       contact: contact,
+      date: date,
       createdAt: formattedDate, // current time
       year: y,
       author: Meteor.userId(),
       file: fileObj,
+      timeLimit: timeLimit
     });
 
     var potentialPosts = PostsFound.find({category: category});
     if(potentialPosts){
       potentialPosts.forEach(function(doc){
-        var target = doc.author;
-        Meteor.call('createGeneralNotification', newPost, target);
+        var notificationTime = doc.timeLimit;
+        if(!notificationTime || notificationTime === "no limit" || Date.parse(doc.date) + notificationTime >= Date.parse(date)){
+          var target = doc.author;
+          Meteor.call('createGeneralNotification', newPost, target);
+        }
+        else{
+          
+        }
       });
     }
 
