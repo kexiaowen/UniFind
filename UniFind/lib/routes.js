@@ -74,7 +74,11 @@ FlowRouter.route('/post/:id',{
   name: 'post',
   action() {
     GAnalytics.pageview();
-    BlazeLayout.render('MainLayout', {main: 'PostSingle'});
+    if(Meteor.userId()) {
+      BlazeLayout.render('MainLayout', {main: 'PostSingle'});
+    } else {
+      BlazeLayout.render('HomeLayout', {main: 'PostSingle'});
+    }
   }
 });
 FlowRouter.route('/edit-found/:id',{

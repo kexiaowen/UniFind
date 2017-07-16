@@ -34,12 +34,14 @@
           <span class="grey-text">{{post.contact}}</span>
         </h6>
 
-        {{#if isNotAuthor}}
-          {{#if currentUser}}
+        {{#if currentUser}}
+          {{#if isNotAuthor}}
             <a href="/inbox/{{chatId}}" type="button" class="right btn waves-effect waves-light red white-text hoverWhite chat-with-poster">Chat</a>
+          {{else}}
+            <button class="right btn waves-effect waves-light blue lighten-1 white-text view-chat">View Chat</button>
           {{/if}}
         {{else}}
-          <button class="right btn waves-effect waves-light blue lighten-1 white-text view-chat">View Chat</button>
+            <a href="/login" type="button" class="right btn waves-effect waves-light red white-text hoverWhite chat-with-poster">Chat</a>
         {{/if}}
       </div>
     </div>
