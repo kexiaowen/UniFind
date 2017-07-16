@@ -48,3 +48,4 @@ cfs:filesystem
 cfs:ejson-file
 cfs:graphicsmagick
 email
+session

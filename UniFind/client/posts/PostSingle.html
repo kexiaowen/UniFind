@@ -3,9 +3,9 @@
     <div class="col m4 s12">
       <div class="container container-padding">
         {{#if showImage.isUploaded}}
-          <img src="{{showImage.url store="images"}}" width=400 height=400>
+          <img src="{{showImage.url store="images"}}" width=400 height=400 class="responsive-img">
         {{else}}
-          <img src="imgs/UnifindBig.png" width=400 height=370>
+          <img src="imgs/UnifindBig.png" width=400 height=370 class="responsive-img">
         {{/if}}
       </div>
     </div>
@@ -32,6 +32,10 @@
         <h6>
           <span class="teal-text">Contact:</span>
           <span class="grey-text">{{post.contact}}</span>
+        </h6>
+        <h6>
+          <span class="teal-text"><i class="fa fa-user"></i></span>
+          <span class="grey-text text-darken-2">{{username}}</span>
         </h6>
         {{#if isNotAuthor}}
           {{#if currentUser}}

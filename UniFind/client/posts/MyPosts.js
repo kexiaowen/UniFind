@@ -1,4 +1,4 @@
-Template.MyPosts.onCreated(function(){
+/*Template.MyPosts.onCreated(function(){
   var self = this;
   self.autorun(function() {
     self.subscribe('ownPostsLost');
@@ -17,4 +17,4 @@ Template.MyPosts.events({
   'click .new-post' : () =>{
     Session.set('newPost', true);
   }
-});
+});*/

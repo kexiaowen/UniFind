@@ -67,6 +67,15 @@ Template.PostSingle.helpers({
   },
   username: function(userId){
     const user = Meteor.users.findOne(userId);
+  /*username: function() {
+    var id = FlowRouter.getParam('id');
+    var post = PostsFound.findOne({_id: id});
+    if(!PostsFound.findOne({_id: id})){
+      post = PostsLost.findOne({_id: id});
+    }
+    var userid = post.author;
+    const user = Meteor.users.findOne(userid);
+>>>>>>> Stashed changes*/
     return user.username;
   }
 });

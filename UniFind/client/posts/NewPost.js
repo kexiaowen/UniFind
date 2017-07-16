@@ -7,7 +7,7 @@ Template.NewPost.onCreated(function(){
 
 Template.NewPost.events({
   'click .fa-close' : function () {
-    Session.set('newPost', false);
+    // Session.set('newPost', false);
     Session.set('newPostLost', false);
     Session.set('newPostFound', false);
     Session.set('displayFoundBtn', true);

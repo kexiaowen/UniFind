@@ -12,15 +12,15 @@ Accounts.emailTemplates.enrollAccount.text = (user, url) => {
 
 if (Meteor.isServer) {
   Meteor.startup(function() {
-    // process.env.MAIL_URL='smtp://AKIAJRO3KFGFCJL5PRBQ:AiAy0XnqeLIbreezl1OgIqcJjUvciw+KaLT1BRnVHxmU@email-smtp.us-east-1.amazonaws.com:587';
+    //process.env.MAIL_URL='smtp://AKIAJRO3KFGFCJL5PRBQ:AiAy0XnqeLIbreezl1OgIqcJjUvciw+KaLT1BRnVHxmU@email-smtp.us-east-1.amazonaws.com:587';
     //process.env.MAIL_URL='smtp://AKIAJRO3KFGFCJL5PRBQ:AiAy0XnqeLIbreezl1OgIqcJjUvciw+KaLT1BRnVHxmU@email-smtp.us-east-1.amazonaws.com:587';
   });
   Accounts.emailTemplates.siteName = "UniFind";
-  Accounts.emailTemplates.from = "UniFind Admin <orbital.hakunamatata@gmail.com>";
+  Accounts.emailTemplates.from = "UniFind Admin <kexiaowen1996@gmail.com>";
   Accounts.emailTemplates.resetPassword.from = () => {
     // Overrides the value set in `Accounts.emailTemplates.from` when resetting
     // passwords.
-    return 'UniFind Password Reset <orbital.hakunamatata@gmail.com>';
+    return 'UniFind Password Reset <kexiaowen1996@gmail.com>';
   };
   Accounts.emailTemplates.verifyEmail.subject = (user) => {
     return `UniFind - Please confirm your email address.`;

@@ -76,7 +76,7 @@ Meteor.methods({
   },
   editEmail: function(userId, newEmail) {
     Accounts.addEmail(this.userId, newEmail);
-    Accounts.sendVerificationEmail(this.userId, newEmail);
+    //Accounts.sendVerificationEmail(this.userId, newEmail);
   },
   removeEmail: function(userId, email) {
     Accounts.removeEmail(this.userId, email);
@@ -84,4 +84,10 @@ Meteor.methods({
   editUsername: function(userId, newUsername) {
     Accounts.setUsername(this.userId, newUsername);
   },
+  resetPwd: function(userId) {
+    Accounts.sendResetPasswordEmail(this.userId);
+  },
+  findUser: function(email) {
+    return Accounts.findUserByEmail(email);
+  }
 });

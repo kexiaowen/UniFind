@@ -17,6 +17,7 @@ Template.Register.events({
     // trim whitespace from the email field
     var trimEmail = email.replace(/^\s*|\s*$/g,"");
     var isComplexPwd = /(?=.*\d)(?=.*[a-zA-Z]).{6,}/;
+    var trimUsername = username.replace(/^\s*|\s*$/g,"");
 
     var isValidPassword = function(pwd) {
       if (pwd.length < 6) {
@@ -46,7 +47,7 @@ Template.Register.events({
     if (isValidPassword(password)) {
       var accountInfo = {
 				email: trimEmail,
-        username: username,
+        username: trimUsername,
 				password: password
 			};
       Accounts.createUser(accountInfo, function(er) {

@@ -38,11 +38,8 @@ Template.Profile.events({
     const oldEmail = Meteor.user().emails;
 
     Meteor.call('editEmail', Meteor.userId, newEmail);
-    if (!oldEmail) {
-    } else {
-      var email = Meteor.user().emails[0].address;
-      Meteor.call('removeEmail', Meteor.userId, email);
-    }
+
+    Meteor.call('removeEmail', Meteor.userId, oldEmail);
 
     template.editEmail.set(!template.editEmail.get());
   },
