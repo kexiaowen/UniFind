@@ -7,6 +7,7 @@ Template.LostItems.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsLost', Session.get("searchValue"));
     self.subscribe('images');
+    self.subscribe('userData');
   });
   Session.set("hasCatQuery", false);
   Session.set("hasColQuery", false);

@@ -59,6 +59,6 @@ Template.EditPostFound.events({
       }
     });
     alert("Your have successfully updated your post!");
-    FlowRouter.go('view-posts');
+    FlowRouter.go('view-posts-found');
   }
 });

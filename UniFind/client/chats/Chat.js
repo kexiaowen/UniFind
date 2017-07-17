@@ -3,6 +3,7 @@ Template.Chat.onCreated(function(){
   self.autorun(function() {
     var chatId = FlowRouter.getParam('id');
     self.subscribe('singleChat', chatId);
+    self.subscribe('userData');
   });
 
 });
@@ -29,6 +30,10 @@ Template.Chat.helpers({
     return "At " + (h<=9 ? '0' + h : h) + ':'
     + (min<=9 ? '0' + min : min) + " , " + (d <= 9 ? '0' + d : d) + '/' + (m<=9 ? '0' + m : m)
      + '/' + y;                        ;
+  },
+  username: function (userId) {
+    const user = Meteor.users.findOne(userId);
+    return user.username;
   }
 });
 

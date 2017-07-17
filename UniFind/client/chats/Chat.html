@@ -6,19 +6,24 @@
 
     <div class="col s12 m6">
         {{#if currentUser}}
-        <div class="inboxContainer teal lighten-4">
-          <a href="/inbox" style='color: black; font-size: 35px' class="paddingLeft">Inbox</a>
+        <div class="inboxContainer teal lighten-5 center">
+          <span><i class="material-icons teal-text text-lighten-1" style="font-size: 30px">email</i></span>
+          <span><a href="/inbox" class="teal-text text-lighten-1" style='color: black; font-size: 35px'>Inbox</a></span>
         </div>
-          <div id="chat-msg" class="chatContainer grey lighten-5">
+          <div id="chat-msg" class="chatContainer grey lighten-4">
             {{#if Template.subscriptionsReady}}
                 {{#each messages}}
                   {{#if sentByMe sentBy}}
-                    <h5 class="msgbubble mine">{{text}} <br>
+                    <h5 class="msgbubble mine">
+                      <span class="grey-text" style="font-size:13px">Me</span> <br>
+                      {{text}} <br>
                       <span class="timeStamp center-align">{{timeStamp}}</span>
                     </h5>
 
                   {{else}}
-                    <h5 class="msgbubble other">{{text}} <br>
+                    <h5 class="msgbubble other">
+                      <span class="grey-text" style="font-size:13px">{{username sentBy}}</span> <br>
+                      {{text}} <br>
                       <span class="timeStamp center-align">{{timeStamp}}</span>
                     </h5>
                   {{/if}}

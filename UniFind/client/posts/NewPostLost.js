@@ -45,7 +45,7 @@ Template.NewPostLost.events({
     var s = date.getSeconds();
     var formattedDate = '' + y + '-' + (m<=9 ? '0' + m : m) + '-' +
                         (d <= 9 ? '0' + d : d) + ' ' + (h<=9 ? '0' + h : h) + ':'
-                        + (min<=9 ? '0' + min : min) + ':' + (s<=9 ? '0' + s : s);
+                        + (min<=9 ? '0' + min : min);
 
 
     var newPost = PostsLost.insert({

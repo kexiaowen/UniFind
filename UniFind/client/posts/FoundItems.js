@@ -7,6 +7,7 @@ Template.FoundItems.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsFound', Session.get("searchValue"));
     self.subscribe('images');
+    self.subscribe('userData');
   });
   Session.set("hasCatQuery", false);
   Session.set("hasColQuery", false);

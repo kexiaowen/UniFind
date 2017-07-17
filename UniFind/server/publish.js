@@ -85,3 +85,7 @@ Meteor.publish('inboxNotifications', function() {
 Meteor.publish('generalNotifications', function() {
   return GeneralNotifications.find({userId: this.userId});
 });
+
+Meteor.publish('userData', function () {
+  return Meteor.users.find({}, {fields: {username: 1}});
+});

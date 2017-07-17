@@ -6,8 +6,9 @@
 
     <div class="col s12 m6">
       {{#if currentUser}}
-          <div class="inboxContainer teal lighten-4 ">
-            <a href="/inbox" style='color: black; font-size: 35px' class="paddingLeft">Inbox</a>
+          <div class="inboxContainer teal lighten-4 center">
+            <i class="material-icons teal-text text-lighten-1" style="font-size: 30px">email</i>
+            <a href="/inbox" class="teal-text text-lighten-1" style='color: black; font-size: 35px'>Inbox</a>
           </div>
           <!--{{#if Template.subscriptionsReady}}
             <div class="row">
@@ -36,19 +37,23 @@
           {{#if Template.subscriptionsReady}}
             <ul class="collection">
               {{#each chats}}
-                <li class="collection-item avatar"><a href="/inbox/{{_id}}" class="chat">
+                <li class="collection-item"><a href="/inbox/{{_id}}" class="chat">
+                  <div class="row">
+                    <div class="col s4 m3">
+                      {{#if imageIsUploaded item}}
+                        <img src="{{imageurl item store="thumbs"}}" class="responsive-img">
+                      {{else}}
+                        <img src="imgs/UnifindThumb.png" class="responsive-img">
+                      {{/if}}
+                    </div>
 
-                  {{#if imageIsUploaded item}}
-                    <img src="{{imageurl item store="thumbs"}}" class="circle">
-                  {{else}}
-                    <img src="imgs/UnifindThumb.png" class="circle">
-                  {{/if}}
-
-                  <span class="black-text light title" style="font-size:30px">{{summary item}}</span>
-                  <p class="grey-text" style="font-size:23px">{{recentMsg messages}} <br>
-                     With {{username user1Id}}
-                  </p>
-
+                    <div class="col s8 m9">
+                      <span class="black-text light title" style="font-size:30px">{{summary item}} </span> <br>
+                        <p class="truncate grey-text" style="font-size:23px">{{recentMsg messages}} <br>
+                           <p style="font-size:15px">With {{username user1Id user2Id}}</p>
+                        </p>
+                    </div>
+                  </div>
                 </a>
               </li>
             {{else}}

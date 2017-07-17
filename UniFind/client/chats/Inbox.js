@@ -6,17 +6,29 @@ Template.Inbox.onCreated(function(){
     self.subscribe('allPostsLost');
     self.subscribe('allPostsFound');
     self.subscribe('inboxNotifications');
+    self.subscribe('userData');
   });
 });
 
 Template.Inbox.helpers({
   chats: function(){
     var itemId = FlowRouter.getQueryParam("item");
+    var chatArray = [];
     if(itemId){
-      return Chats.find({item: itemId});
+      Chats.find({item: itemId}).forEach(function(doc){
+        if(doc.messages.length >= 1){
+          chatArray.push(doc);
+        }
+      });
+      return chatArray;
     }
     else{
-      return Chats.find({});
+      Chats.find().forEach(function(doc){
+        if(doc.messages.length >= 1){
+          chatArray.push(doc);
+        }
+      });
+      return chatArray;
     }
   },
   imageIsUploaded: function(itemId){
@@ -54,8 +66,10 @@ Template.Inbox.helpers({
     var len = messages.length;
     return messages[len-1].text;
   },
-  username: function(user1Id){
-    return "tempUserName";
+  username: function(user1Id, user2Id){
+    var userId = user1Id === Meteor.userId()? user2Id : user1Id;
+    const user = Meteor.users.findOne(userId);
+    return user.username;
   }
 });
 

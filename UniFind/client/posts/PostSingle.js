@@ -6,6 +6,7 @@ Template.PostSingle.onCreated(function(){
     self.subscribe('singlePostLost', id);
     self.subscribe('images');
     self.subscribe('chats');
+    self.subscribe('userData');
   });
 });
 Template.PostSingle.helpers({
@@ -63,11 +64,15 @@ Template.PostSingle.helpers({
     );
     var chatId = Session.get('chatId');
     return chatId;
+  },
+  username: function(userId){
+    const user = Meteor.users.findOne(userId);
+    return user.username;
   }
 });
 
 Template.PostSingle.events({
-  
+
   'click .view-chat': function(){
     var id = FlowRouter.getParam('id');
     FlowRouter.go('inbox');
