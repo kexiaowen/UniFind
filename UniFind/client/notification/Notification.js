@@ -3,6 +3,8 @@ Template.Notification.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsFound');
     self.subscribe('allPostsLost');
+    self.subscribe('userData');
+    self.subscribe('images');
     self.subscribe('generalNotifications', Meteor.userId());
   });
 });
@@ -39,5 +41,8 @@ Template.Notification.helpers({
 
     });
     return posts;
+  },
+  isPostFound: function(){
+    return PostsFound.findOne({_id: this._id})? true: false;
   }
 });

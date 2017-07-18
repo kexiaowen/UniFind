@@ -3,6 +3,8 @@ Template.SuggestedPosts.onCreated(function(){
   self.autorun(function() {
     self.subscribe('allPostsFound', Session.get("searchValue"));
     self.subscribe('allPostsLost', Session.get("searchValue"));
+    self.subscribe('userData');
+    self.subscribe('images');
   });
 
 });
