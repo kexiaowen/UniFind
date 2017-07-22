@@ -35,8 +35,8 @@ Template.Profile.events({
     // Get value from form element
     const target = event.target;
     const newEmail = target.newEmail.value;
-    const oldEmail = Meteor.user().emails;
-
+    const oldEmail = Meteor.user().emails[0].address;
+    //console.log(oldEmail);
     Meteor.call('editEmail', Meteor.userId, newEmail);
 
     Meteor.call('removeEmail', Meteor.userId, oldEmail);

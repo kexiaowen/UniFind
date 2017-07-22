@@ -37,7 +37,7 @@ Template.Register.events({
       } else if (pwd !== confirmPassword) {
         return "Password does not match the confirm password!";
       } else if (!isComplexPwd.test(pwd)){
-        return "Must contain at least 1 letter and 1 digit";
+        return "Password must contain at least 1 letter and 1 digit";
       } else {
         return "success";
       }

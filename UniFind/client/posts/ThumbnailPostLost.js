@@ -1,6 +1,13 @@
+Template.ThumbnailPostLost.onCreated(function(){
+  var self = this;
+  self.autorun(function() {
+    self.subscribe('images');
+  });
+});
+
 Template.ThumbnailPostLost.helpers({
   showImage: function(){
-    //var post = PostsLost.findOne({_id: this._id});
+    // var post = PostsLost.findOne({_id: this._id});
     var imgId = this.file._id;
     var image = Images.findOne({_id: imgId});
     return image;
@@ -11,9 +18,7 @@ Template.ThumbnailPostLost.helpers({
   username: function() {
     var post = PostsLost.findOne({_id: this._id});
     var userid = post.author;
-    console.log(userid);
     const user = Meteor.users.findOne(userid);
-    console.log(user);
     return user.username;
   }
   /*title: function() {

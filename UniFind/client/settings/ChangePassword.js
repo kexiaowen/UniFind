@@ -14,7 +14,7 @@ Template.ChangePassword.events({
     var isValidPassword = function(pwd) {
       if (pwd.length < 6) {
         return false;
-      } else if (pwd !== confirmPassword) {
+      } else if (pwd !== confirmNewPassword) {
         return false;
       } else if (!isComplexPwd.test(pwd)){
         return false;
@@ -26,10 +26,10 @@ Template.ChangePassword.events({
     var errorMessage = function(pwd) {
       if (pwd.length < 6) {
         return "New password must be at least 6 characters long!";
-      } else if (pwd !== confirmPassword) {
+      } else if (pwd !== confirmNewPassword) {
         return "New password does not match the confirm password!";
       } else if (!isComplexPwd.test(pwd)){
-        return "Must contain at least 1 letter and 1 digit";
+        return "Password must contain at least 1 letter and 1 digit";
       } else {
         return "success";
       }
@@ -38,7 +38,7 @@ Template.ChangePassword.events({
 
 
     // Change assword
-    if (isValidPassword(password)) {
+    if (isValidPassword(newPassword)) {
       Accounts.changePassword(oldPassword, newPassword, function(er) {
         if(er) {
 					Materialize.toast(er.reason, 5000);

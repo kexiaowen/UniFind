@@ -1,13 +1,13 @@
-/*Template.ThumbnailPostFound.onCreated(function(){
+Template.ThumbnailPostFound.onCreated(function(){
   var self = this;
   self.autorun(function() {
     self.subscribe('images');
   });
-});*/
+});
 
 Template.ThumbnailPostFound.helpers({
   showImage: function(){
-    //var post = PostsFound.findOne({_id: this._id});
+    // var post = PostsFound.findOne({_id: this._id});
     var imgId = this.file._id;
     var image = Images.findOne({_id: imgId});
     return image;
@@ -19,9 +19,7 @@ Template.ThumbnailPostFound.helpers({
   username: function() {
     var post = PostsFound.findOne({_id: this._id});
     var userid = post.author;
-    console.log(userid);
     const user = Meteor.users.findOne(userid);
-    console.log(user);
     return user.username;
   }
   /*title: function() {

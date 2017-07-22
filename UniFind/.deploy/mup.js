@@ -2,7 +2,7 @@ module.exports = {
   servers: {
     one: {
       // TODO: set host address, username, and authentication method
-      host: '52.15.198.128',
+      host: '52.15.139.68',
       username: 'ubuntu',
       pem: '../../../../Downloads/123456789.pem',
       // password: 'server-password'
