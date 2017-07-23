@@ -14,7 +14,11 @@
 
                 {{#each posts}}
                   <div class="col s12 m4">
-                    {{> ThumbnailPostFound}}
+                    {{#if isPostFound}}
+                      {{> ThumbnailPostFound}}
+                    {{else}}
+                      {{> ThumbnailPostLost}}
+                    {{/if}}
                   </div>
 
                 {{else}}

@@ -47,5 +47,8 @@ Template.SuggestedPosts.helpers({
     else{
       return false;
     }
+  },
+  isPostFound: function(){
+    return PostsFound.findOne({_id: this._id})? true: false;
   }
 });
